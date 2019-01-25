@@ -80,7 +80,14 @@ public class EnemyController : MonoBehaviour
     private void ApplyDamage(ITakeDamage takeDamage)
     {
         if (_coolDownTime > 0) return;
-        takeDamage.TakeDamage(ObjectDamage);
+        if (takeDamage.GetDamageType() == DamageType.Object)
+        {
+            takeDamage.TakeDamage(ObjectDamage);
+        }
+        else if(takeDamage.GetDamageType() == DamageType.Person)
+        {
+            takeDamage.TakeDamage(PlayerDamage);
+        }
         _coolDownTime = DamageCooldown;
     }
 }
