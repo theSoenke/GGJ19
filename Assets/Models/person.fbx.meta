@@ -66,6 +66,8 @@ ModelImporter:
     7400004: Walk
     7400006: Armature|ArmatureAction.001
     7400008: Armature|Walk
+    7400010: WalkHold
+    7400012: Armature|WalkHold
     9500000: //RootNode
     13700000: Blu
   externalObjects: {}
