@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class DestroyableTarget : Target, ITakeDamage
 {
-    public float Health;
+    [SerializeField]
+    private float Health;
+
+    [SerializeField]
+    private DamageType DamageType;
 
     public bool TakeDamage(float value)
     {
@@ -17,5 +21,10 @@ public class DestroyableTarget : Target, ITakeDamage
         }
 
         return result;
+    }
+
+    public DamageType GetDamageType()
+    {
+        return DamageType;
     }
 }
