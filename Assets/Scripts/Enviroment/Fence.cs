@@ -12,10 +12,13 @@ public class Fence : Target, ITakeDamage
     public GameObject FenceBroken;
 
     private float _repairStartedTime;
+    private bool _playerInRange;
+    private bool _repairLocked;
 
     public void Start()
     {
         RepairIcon.OnIconClicked += Repair;
+        MessageBus.Subscribe<RepairEvent>(OnRepairEvent);
     }
 
     public bool TakeDamage(float value)
@@ -42,8 +45,16 @@ public class Fence : Target, ITakeDamage
     }
 
 
+    private void OnRepairEvent(RepairEvent ev)
+    {
+        _repairLocked = ev.IsRepairing;
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag != "Player") return;
+        _playerInRange = true;
         if (State == FenceState.Broken)
         {
             RepairIcon.gameObject.SetActive(true);
@@ -53,11 +64,14 @@ public class Fence : Target, ITakeDamage
 
     private void OnTriggerExit(Collider other)
     {
-        RepairIcon.gameObject.SetActive(false);
+        if (other.gameObject.tag != "Player") return;
+        _playerInRange = false;
+
 
         if (State == FenceState.Repairing)
         {
             State = FenceState.Broken;
+            MessageBus.Push(new RepairEvent(false));
         }
     }
 
@@ -66,6 +80,7 @@ public class Fence : Target, ITakeDamage
     {
         _repairStartedTime = Time.time;
         State = FenceState.Repairing;
+        MessageBus.Push(new RepairEvent(true));
     }
 
 
@@ -74,6 +89,7 @@ public class Fence : Target, ITakeDamage
         if (State == FenceState.Repairing && Time.time > _repairStartedTime + RepairTime)
         {
             State = FenceState.Ok;
+            MessageBus.Push(new RepairEvent(false));
         }
     }
 
@@ -89,6 +105,14 @@ public class Fence : Target, ITakeDamage
             FenceOK.SetActive(false);
             FenceBroken.SetActive(true);
         }
+
+        RepairIcon.gameObject.SetActive(CanRepair());
+    }
+
+
+    private bool CanRepair()
+    {
+        return _playerInRange && !_repairLocked && State == FenceState.Broken;
     }
 
 
