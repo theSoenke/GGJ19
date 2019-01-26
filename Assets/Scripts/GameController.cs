@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +10,11 @@ public class GameController : MonoBehaviour
     public Target[] Walls;
     public Target[] Player;
 
-    public Text believerStatus;
-    public Text nextRoundTimer;
+    public Image believerBible;
+    public TextMeshProUGUI nextRoundMessage;
 
-    private float believer = 0;
+    [Range(0f,1f)]
+    public float believer = 0f;
     private float roundCountdown = 10;
     private List<EnemyController> enemies = new List<EnemyController>();   
     private WaveController waveController;
@@ -56,18 +58,19 @@ public class GameController : MonoBehaviour
 
     private void UpdateBelieverStatus()
     {
-        believerStatus.text = believer.ToString();
+        believerBible.fillAmount = believer;
+        // believerStatus.text = believer.ToString();
     }
 
     private void UpdateRoundTimer()
     {
         if(roundCountdown > 0)
         {
-            nextRoundTimer.text = "Incoming in " + roundCountdown.ToString("0");
+            nextRoundMessage.text = "Incoming in " + roundCountdown.ToString("0");
             roundCountdown -= Time.deltaTime;
         } else
         {
-            nextRoundTimer.enabled = false;
+            nextRoundMessage.gameObject.SetActive(false);
         }
     }
 }
