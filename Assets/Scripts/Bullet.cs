@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour
         
         if(enemy != null) {
             enemy.TakeDamage(_damage);
+            Destroy(gameObject);
         }
     }
 }
