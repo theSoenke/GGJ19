@@ -7,6 +7,7 @@ using UnityEngine;
 public class WaveController : MonoBehaviour
 {
     private Transform[] _spawns;
+    private Target[] _targets;
     private GameController _gameController;
 
     private bool _started = false;
@@ -24,6 +25,7 @@ public class WaveController : MonoBehaviour
     {
         _gameController = GetComponent<GameController>();
         _spawns = GameObject.FindGameObjectsWithTag("EnemySpawn").Select(g => g.transform).ToArray();
+        _targets = GameObject.FindGameObjectsWithTag("Target").Select(t => t.GetComponent<Target>()).ToArray();
     }
 
     public void StartWave()
@@ -84,7 +86,14 @@ public class WaveController : MonoBehaviour
             var spawn = _spawns[spawnIndex];
             
             var go = GameObject.Instantiate(p, spawn.position, spawn.rotation);
-            _gameController.AddEnenemy(go.GetComponent<EnemyController>());
+            var ec = go.GetComponent<EnemyController>();
+
+            var targetIndex = UnityEngine.Random.Range(0, _targets.Length);
+            var target = _targets[targetIndex];
+
+            ec.SetTarget(target);
+
+            _gameController.AddEnenemy(ec);
 
             _spawnedCount++;            
         }
