@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
 
     public void AddEnenemy(EnemyController enemy)
     {
-        enemy.GameController = this;
+        enemy.gameController = this;
         enemies.Add(enemy);
     }
 

@@ -19,6 +19,7 @@ public class WaveController : MonoBehaviour
     private int _spawnEntityCount;
     private int _spawnedCount;
 
+    public float enemyScale = 0.02f;
     public WaveSetting[] Waves;
 
     void Start()
@@ -85,7 +86,11 @@ public class WaveController : MonoBehaviour
             var spawnIndex = UnityEngine.Random.Range(0, _spawns.Length);
             var spawn = _spawns[spawnIndex];
             
-            var go = GameObject.Instantiate(p, spawn.position, spawn.rotation);
+            var go = Instantiate(p, spawn.position, spawn.rotation);
+            if(Application.platform == RuntimePlatform.Android)
+            {
+                go.transform.localScale = new Vector3(enemyScale, enemyScale, enemyScale);
+            }
             var ec = go.GetComponent<EnemyController>();
 
             //var targetIndex = UnityEngine.Random.Range(0, _targets.Length);

@@ -5,7 +5,7 @@ using UnityEngine;
 
 #if UNITY_EDITOR
 // Set up touch input propagation while using Instant Preview in the editor.
-    using Input = GoogleARCore.InstantPreviewInput;
+using Input = GoogleARCore.InstantPreviewInput;
 #endif
 
 public class ARController : MonoBehaviour
@@ -16,6 +16,7 @@ public class ARController : MonoBehaviour
     public Camera FirstPersonCamera;
 
     public GameObject level;
+    public WaveController waveController;
     public float modelScale = 0.02f;
 
     /// <summary>
@@ -55,12 +56,16 @@ public class ARController : MonoBehaviour
     private bool m_IsQuitting = false;
     private bool _levelSpawned = false;
 
-    /// <summary>
-    /// The Unity Update() method.
-    /// </summary>
+    void Start()
+    {
+        waveController.enabled = false;
+    }
+
     public void Update()
     {
         _UpdateApplicationLifecycle();
+
+        if (_levelSpawned) return;
 
         // Hide snackbar when currently tracking at least one plane.
         Session.GetTrackables<DetectedPlane>(m_AllPlanes);
@@ -121,6 +126,8 @@ public class ARController : MonoBehaviour
 
         // Make Andy model a child of the anchor.
         andyObject.transform.parent = anchor.transform;
+
+        waveController.enabled = true;
         _levelSpawned = true;
     }
 
