@@ -45,8 +45,10 @@ public class GameController : MonoBehaviour
         _isWaveActive = true;
     }
 
-    public Target GetTarget(bool shouldBePrimary, Func<Target, bool> isReachable)
+    public Target GetTarget(Vector3 position, bool shouldBePrimary, Func<Target, bool> isReachable)
     {
+        var time = DateTime.Now;
+
         Target result = null;        
         var list = _targets.Where(t => t.Target.IsAvailable);
 
@@ -58,14 +60,28 @@ public class GameController : MonoBehaviour
         list = list.ToList().Select(t => new TargetConfig(t)).OrderBy(t => t.Propability).ToList();
 
         var p = 0;
+        var minDistance = list.First().GetDistance(position);
+        var maxDistance = minDistance;
         foreach (var t in list)
         {
             var oldValue = p;
             p += t.Propability;
             t.Propability += oldValue;
+
+            var distance = t.GetDistance(position);
+            if (distance < minDistance) minDistance = distance;
+            if (distance > maxDistance) maxDistance = distance;
+
+            t.Distance = distance;
         }
 
-       
+        var distanceDiff = maxDistance - minDistance;
+        foreach (var t in list)
+        {
+            t.Distance = (t.Distance - minDistance) / distanceDiff;
+            if(!t.Target.IsPrimaryTarget)
+                t.Propability -= (int)(t.Propability * (t.Distance * 0.5f));
+        }
 
         var tries = 0;
         while (result == null && tries < MaxTargetFindingTries)
@@ -87,7 +103,10 @@ public class GameController : MonoBehaviour
             }
 
             tries++;
-        }       
+        }
+
+        var wasted = DateTime.Now - time;
+        //Debug.Log("Time wasted fiding Target : " + wasted.TotalMilliseconds+" ms");
 
         return result;
     }
@@ -155,6 +174,7 @@ public class TargetConfig
 {
     public Target Target;
     public int Propability;
+    public float Distance;
 
     public TargetConfig(Target target)
     {
@@ -166,5 +186,10 @@ public class TargetConfig
     {
         Target = config.Target;
         Propability = Target.Priority;
+    }
+
+    public float GetDistance(Vector3 point)
+    {
+        return (point - Target.TargetPosition.position).magnitude;
     }
 }

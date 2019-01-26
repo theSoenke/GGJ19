@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
             _nextTargetTime -= Time.deltaTime;
             if (_nextTargetTime <= 0)
             {
-                var target = GameController.GetTarget(false, IsTargetReachable);
+                var target = GameController.GetTarget(transform.position, false, IsTargetReachable);
                 SetTarget(target);
             }
         }
@@ -165,7 +165,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
             {
                 if (ShouldTargetPrimary)
                 {
-                    _currentTarget = GameController.GetTarget(true, IsTargetReachable);
+                    _currentTarget = GameController.GetTarget(transform.position, true, IsTargetReachable);
                     if (_currentTarget != null) SetTarget(_currentTarget);
                 }
             }
