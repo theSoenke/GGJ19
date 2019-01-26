@@ -6,7 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(GameController))]
 public class WaveController : MonoBehaviour
 {
-    private Transform[] _spawns;
+    [HideInInspector]
+    public Transform[] spawns;
     private Target[] _targets;
     private GameController _gameController;
 
@@ -25,7 +26,7 @@ public class WaveController : MonoBehaviour
     void Start()
     {
         _gameController = GetComponent<GameController>();
-        _spawns = GameObject.FindGameObjectsWithTag("EnemySpawn").Select(g => g.transform).ToArray();
+        spawns = GameObject.FindGameObjectsWithTag("EnemySpawn").Select(g => g.transform).ToArray();
         _targets = GameObject.FindGameObjectsWithTag("Target").Select(t => t.GetComponent<Target>()).ToArray();
     }
 
@@ -83,8 +84,8 @@ public class WaveController : MonoBehaviour
         var prefabs = _currentWaveSetting.GetEnemiesPrefabs(_spawnCount);
         foreach (var p in prefabs)
         {
-            var spawnIndex = UnityEngine.Random.Range(0, _spawns.Length);
-            var spawn = _spawns[spawnIndex];
+            var spawnIndex = UnityEngine.Random.Range(0, spawns.Length);
+            var spawn = spawns[spawnIndex];
             
             var go = Instantiate(p, spawn.position, spawn.rotation);
             if(Application.platform == RuntimePlatform.Android)

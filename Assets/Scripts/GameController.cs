@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private TargetConfig[] _targets;
     private int _targetValues;
-    private const int MaxTargetFindingTries = 100;
+    private const int maxTargetFindingTries = 100;
 
     public GameObject partyTable;
     public TextMeshProUGUI partyMessage;
@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour
     {
         enemy.gameController = this;
         Enemies.Add(enemy);
+        MessageBus.Subscribe<PartyMessage>(enemy, OnParty);
     }
 
     public void RemoveEnemy(EnemyController enemy)
@@ -88,7 +89,7 @@ public class GameController : MonoBehaviour
         }
 
         var tries = 0;
-        while (result == null && tries < MaxTargetFindingTries)
+        while (result == null && tries < maxTargetFindingTries)
         {
             var randomValue = UnityEngine.Random.Range(0, p + 1);
             
@@ -117,7 +118,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        _targets = GameObject.FindObjectsOfType<Target>().Select(t => new TargetConfig(t)).OrderBy(t => t.Propability).ToArray();
+        _targets = FindObjectsOfType<Target>().Select(t => new TargetConfig(t)).OrderBy(t => t.Propability).ToArray();
        
         waveController = GetComponent<WaveController>();
         Walls = GameObject.FindGameObjectsWithTag("Target").Select(t => t.GetComponent<Target>()).ToArray();
@@ -139,12 +140,23 @@ public class GameController : MonoBehaviour
             partyMessage.enabled = true;
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                partyMessage.enabled = false;
-                var partyTableGo = Instantiate(partyTable);
-                float partyDuration = 10f;
-                _timeTilParty = timeBetweenParties + partyDuration;
-                Destroy(partyTableGo, partyDuration);
+                Party();
             }
+        }
+    }
+
+    private void Party()
+    {
+        partyMessage.enabled = false;
+        var partyTableGo = Instantiate(partyTable);
+        float partyDuration = 10f;
+        _timeTilParty = timeBetweenParties + partyDuration;
+        Destroy(partyTableGo, partyDuration);
+
+
+        foreach(var enemy in Enemies)
+        {
+            MessageBus.Push(new PartyMessage(enemy));
         }
     }
 
@@ -157,9 +169,18 @@ public class GameController : MonoBehaviour
 
     private void OnEnemyDead(EnemyDeadMessage msg)
     {
-        if (Enemies.Contains(msg.EnemyController))
+        if (Enemies.Contains(msg.enemyController))
         {
-            RemoveEnemy(msg.EnemyController);
+            RemoveEnemy(msg.enemyController);
+        }
+    }
+
+    private void OnParty(PartyMessage msg)
+    {
+        if (Enemies.Contains(msg.enemyController))
+        {
+            var target = waveController.spawns[UnityEngine.Random.Range(0, waveController.spawns.Length)];
+            msg.enemyController.SetDestionation(target.position, 10f);
         }
     }
 
