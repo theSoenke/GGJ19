@@ -59,7 +59,6 @@ public class GameController : MonoBehaviour
     private void UpdateBelieverStatus()
     {
         believerBible.fillAmount = believer;
-        // believerStatus.text = believer.ToString();
     }
 
     private void UpdateRoundTimer()
