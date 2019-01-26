@@ -29,11 +29,14 @@ public class EnemyController : MonoBehaviour, ITakeDamage
     [HideInInspector]
     public GameController gameController;
 
+    private bool _isDead;
+
     // Start is called before the first frame update
     void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
+        _isDead = false;
 
         MessageBus.Subscribe<TargetDestroyedMessage>(this, OnTargetDestroyed);
     }
@@ -85,9 +88,12 @@ public class EnemyController : MonoBehaviour, ITakeDamage
 
     public bool TakeDamage(float damage)
     {
+        if (_isDead) return true;
+
         _health -= damage;
         if(_health <= 0) {
             //TODO: effects
+            _isDead = true;
             MessageBus.Push(new EnemyDeadMessage(this));
             MessageBus.UnSubscribe<TargetDestroyedMessage>(this);
             Destroy(gameObject);

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Vector3 prevInputVector = new Vector3();
     public GameObject bullet;
+    public Transform BulletParent;
     public float bulletSpeed = 1.0f;
 
     public Transform GunMuzzle;
@@ -44,7 +45,15 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bulletGameObject = Instantiate(bullet, GunMuzzle.position, transform.rotation);
+        GameObject bulletGameObject;
+        if (BulletParent == null)
+        {
+            bulletGameObject = Instantiate(bullet, GunMuzzle.position, transform.rotation);
+        }
+        else
+        {
+            bulletGameObject = Instantiate(bullet, GunMuzzle.position, transform.rotation, BulletParent);
+        }
         bulletGameObject.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
     }
 

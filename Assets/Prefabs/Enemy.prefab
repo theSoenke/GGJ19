@@ -430,13 +430,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distanceToTarget: 1
-  _health: 100
+  _health: 30
   ObjectDamage: 20
   PlayerDamage: 10
   DamageCooldown: 2
   AnimationWalkSpeedFactor: 0.82
   TargetPlayerPriority: 0.4
-  GameController: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!136 &5947686698623962824
 CapsuleCollider:
   m_ObjectHideFlags: 0
