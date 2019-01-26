@@ -42,6 +42,11 @@ public class GameController : MonoBehaviour
         enemy.gameController = this;
         Enemies.Add(enemy);
         MessageBus.Subscribe<PartyMessage>(enemy, OnParty);
+
+        if(_timeTilParty > 0)
+        {
+            MessageBus.Push<PartyMessage>(new PartyMessage(enemy));
+        }
     }
 
     public void RemoveEnemy(EnemyController enemy)
