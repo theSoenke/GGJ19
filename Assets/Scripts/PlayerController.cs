@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 prevInputVector = new Vector3();
     public GameObject bullet;
     public Transform BulletParent;
+    public AudioSource ShotAudio;
     public float bulletSpeed = 1.0f;
+    public float ShotSoundPitch = 0.1f;
 
     public Transform GunMuzzle;
 
@@ -67,6 +69,8 @@ public class PlayerController : MonoBehaviour
             bulletGameObject = Instantiate(bullet, GunMuzzle.position, transform.rotation, BulletParent);
         }
         bulletGameObject.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+        ShotAudio.pitch = 1 + UnityEngine.Random.Range(-ShotSoundPitch, ShotSoundPitch);
+        ShotAudio.Play();
     }
 
     private void UpdatePosition()
