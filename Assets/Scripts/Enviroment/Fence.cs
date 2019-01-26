@@ -27,6 +27,7 @@ public class Fence : Target, ITakeDamage
         if (Health <= 0 && State != FenceState.Broken)
         {
             State = FenceState.Broken;
+            IsAvailable = false;
             MessageBus.Push(new TargetDestroyed(this));
             return true;
         }
@@ -89,6 +90,7 @@ public class Fence : Target, ITakeDamage
         if (State == FenceState.Repairing && Time.time > _repairStartedTime + RepairTime)
         {
             State = FenceState.Ok;
+            IsAvailable = true;
             MessageBus.Push(new RepairEvent(false));
         }
     }

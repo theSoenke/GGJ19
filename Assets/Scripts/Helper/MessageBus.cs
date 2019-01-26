@@ -13,10 +13,9 @@ public static class MessageBus
         var subscriber = _entries.Where(e => e.TType.IsAssignableFrom(ttype)).Select(e => e as Entry<T>).Where(e => e != null);
         foreach (var s in subscriber)
         {
-            Action<T> action;
-            if (s.Action != null && s.Action.TryGetTarget(out action))
+            if (s.Action != null)
             {
-                action(message);
+                s.Action(message);
             }                
         }
     }  
@@ -26,7 +25,7 @@ public static class MessageBus
         var entry = new Entry<T>();
         entry.Target = target;
         entry.TType = typeof(T);
-        entry.Action = new WeakReference<Action<T>>(subscriber);
+        entry.Action = subscriber;
 
         _entries.Add(entry);
     }
@@ -57,6 +56,6 @@ public static class MessageBus
 
     private class Entry<TV> : Entry
     {
-        public WeakReference<Action<TV>> Action;       
+        public Action<TV> Action;       
     }
 }
