@@ -146,7 +146,7 @@ public class WaveSetting
         for (var i = 0; i < count; i++)
         {
             var number = UnityEngine.Random.Range(0, _propabilities);
-            var prefab = Enemies.FirstOrDefault(e => e.SpawnProbability <= number);
+            var prefab = Enemies.FirstOrDefault(e => number <= e.SpawnProbability);
             if (prefab != null)
             {
                 result.Add(prefab.Prefab);

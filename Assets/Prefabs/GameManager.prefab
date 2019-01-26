@@ -44,8 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd7e8bd350322442b3515762cfdc5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  believerStatus: {fileID: 0}
-  nextRoundTimer: {fileID: 0}
+  partyTable: {fileID: 8686136772725658871, guid: a363d7ca966980347847ff4fb8864de0,
+    type: 3}
+  partyMessage: {fileID: 0}
+  Walls: []
+  Player: []
+  timeBetweenParties: 10
+  believerBible: {fileID: 0}
+  nextRoundMessage: {fileID: 0}
+  believer: 0
+  roundCountdown: 10
+  Enemies: []
 --- !u!114 &7547379891805673319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2903b30b611410e449dc06e39275ee69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyScale: 0.02
   Waves:
   - MaxEnemies: 10
     SpawnTimeInSeconds: 3
@@ -67,9 +77,9 @@ MonoBehaviour:
     - Prefab: {fileID: 4393099573896319882, guid: f8c073f26412aee4f9fae05f74ef955c,
         type: 3}
       SpawnProbability: 100
-    - Prefab: {fileID: 4393099573896319882, guid: f8c073f26412aee4f9fae05f74ef955c,
+    - Prefab: {fileID: 4393099573896319882, guid: 814eaa3a1e062bd498d104065b4d75f5,
         type: 3}
-      SpawnProbability: 10
+      SpawnProbability: 15
   - MaxEnemies: 15
     SpawnTimeInSeconds: 3
     SpawnCount: 1
@@ -78,12 +88,12 @@ MonoBehaviour:
     - Prefab: {fileID: 4393099573896319882, guid: f8c073f26412aee4f9fae05f74ef955c,
         type: 3}
       SpawnProbability: 200
-    - Prefab: {fileID: 4393099573896319882, guid: f8c073f26412aee4f9fae05f74ef955c,
+    - Prefab: {fileID: 4393099573896319882, guid: 81635488e36c37249924c37e6f579778,
         type: 3}
-      SpawnProbability: 50
-    - Prefab: {fileID: 4393099573896319882, guid: f8c073f26412aee4f9fae05f74ef955c,
+      SpawnProbability: 75
+    - Prefab: {fileID: 4393099573896319882, guid: 814eaa3a1e062bd498d104065b4d75f5,
         type: 3}
-      SpawnProbability: 10
+      SpawnProbability: 30
   - MaxEnemies: 20
     SpawnTimeInSeconds: 2
     SpawnCount: 2
@@ -91,13 +101,12 @@ MonoBehaviour:
     Enemies:
     - Prefab: {fileID: 4393099573896319882, guid: f8c073f26412aee4f9fae05f74ef955c,
         type: 3}
-      SpawnProbability: 500
-    - Prefab: {fileID: 4393099573896319882, guid: f8c073f26412aee4f9fae05f74ef955c,
+      SpawnProbability: 200
+    - Prefab: {fileID: 4393099573896319882, guid: 81635488e36c37249924c37e6f579778,
         type: 3}
-      SpawnProbability: 100
-    - Prefab: {fileID: 4393099573896319882, guid: f8c073f26412aee4f9fae05f74ef955c,
+      SpawnProbability: 75
+    - Prefab: {fileID: 4393099573896319882, guid: 814eaa3a1e062bd498d104065b4d75f5,
         type: 3}
-      SpawnProbability: 20
-    - Prefab: {fileID: 4393099573896319882, guid: f8c073f26412aee4f9fae05f74ef955c,
-        type: 3}
-      SpawnProbability: 5
+      SpawnProbability: 75
+  CurrentEnemyCount: 0
+  AllEnemiesSpawned: 0

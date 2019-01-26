@@ -6682,6 +6682,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7547379891805673368, guid: 63b12afb39201b74784ed29dfba5d7e5,
         type: 3}
+      propertyPath: partyMessage
+      value: 
+      objectReference: {fileID: 62688666}
+    - target: {fileID: 7547379891805673368, guid: 63b12afb39201b74784ed29dfba5d7e5,
+        type: 3}
       propertyPath: believerBible
       value: 
       objectReference: {fileID: 1644543428}
@@ -6690,17 +6695,6 @@ PrefabInstance:
       propertyPath: nextRoundMessage
       value: 
       objectReference: {fileID: 2087425011}
-    - target: {fileID: 7547379891805673368, guid: 63b12afb39201b74784ed29dfba5d7e5,
-        type: 3}
-      propertyPath: partyTable
-      value: 
-      objectReference: {fileID: 8686136772725658871, guid: a363d7ca966980347847ff4fb8864de0,
-        type: 3}
-    - target: {fileID: 7547379891805673368, guid: 63b12afb39201b74784ed29dfba5d7e5,
-        type: 3}
-      propertyPath: partyMessage
-      value: 
-      objectReference: {fileID: 62688666}
     - target: {fileID: 7547379891805673369, guid: 63b12afb39201b74784ed29dfba5d7e5,
         type: 3}
       propertyPath: m_LocalPosition.x
