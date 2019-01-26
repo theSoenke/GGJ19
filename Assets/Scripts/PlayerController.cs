@@ -3,14 +3,14 @@
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 1.0f;
+    public GameObject bullet;
+    public float bulletSpeed = 1.0f;
 
     private Rigidbody rigidbodyComponent;
-    private Vector3 prevInputVector = new Vector3();
 
-    private void Start()
+    void Start()
     {
         rigidbodyComponent = GetComponent<Rigidbody>();
-        prevInputVector = new Vector3(1.0f, 0.0f, 0.0f);
     }
 
     void Update()
@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        Debug.Log("Shoot");
+        GameObject bulletGameObject = Instantiate(bullet, transform.position, Quaternion.identity);
+        bulletGameObject.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
     }
 
     void UpdatePosition()
@@ -35,11 +36,7 @@ public class PlayerController : MonoBehaviour
         {
             inputVector = inputVector.normalized;
         }
-        if (inputVector.sqrMagnitude >= 0.0001)
-        {
-            prevInputVector = inputVector.normalized;
-        }
-
+      
         var speedVector = inputVector * movementSpeed;
         rigidbodyComponent.velocity = speedVector;
     }
