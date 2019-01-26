@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private Target _currentTarget;
+    private float _partyTimeLeft = 0f;
 
     [SerializeField]
     private float _distanceToTarget = 0.75f;
@@ -40,10 +41,6 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         MessageBus.Subscribe<TargetDestroyedMessage>(this, OnTargetDestroyed);
     }
 
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -112,7 +109,14 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         _currentTarget = target;
         _navMeshAgent.SetDestination(target.TargetPosition.position);
     }
-   
+
+    public void SetDestionation(Vector3 position, float partyTime)
+    {
+        _partyTimeLeft = partyTime;
+        _navMeshAgent.SetDestination(position);
+    }
+
+
 
     private void UpdateAnimator()
     {

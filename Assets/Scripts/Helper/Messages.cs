@@ -20,10 +20,20 @@ public class RepairEventMessage
 
 public class EnemyDeadMessage
 {
-    public EnemyController EnemyController;
+    public EnemyController enemyController;
 
     public EnemyDeadMessage(EnemyController controller)
     {
-        EnemyController = controller;
+        enemyController = controller;
+    }
+}
+
+public class PartyMessage
+{
+    public EnemyController enemyController;
+
+    public PartyMessage(EnemyController controller)
+    {
+        enemyController = controller;
     }
 }
