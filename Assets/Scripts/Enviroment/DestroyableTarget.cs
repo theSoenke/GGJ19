@@ -18,6 +18,7 @@ public class DestroyableTarget : Target, ITakeDamage
         {
             result = true;
             Destroy(gameObject);
+            MessageBus.Push(new TargetDestroyed(this));
         }
 
         return result;

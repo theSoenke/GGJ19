@@ -20,11 +20,23 @@ public class EnemyController : MonoBehaviour
     public float DamageCooldown = 2f;
     public float AnimationWalkSpeedFactor = 1.0f;
 
+    [HideInInspector]
+    public GameController GameController;
+
     // Start is called before the first frame update
     void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
+    }
+
+    void Start()
+    {
+        if(_currentTarget == null)
+        {
+            var target = GetNextTarget();
+
+        }
     }
 
     // Update is called once per frame
@@ -61,6 +73,13 @@ public class EnemyController : MonoBehaviour
 
         _currentTarget = target;
         _navMeshAgent.SetDestination(target.TargetPosition.position);
+    }
+
+    private Target GetNextTarget()
+    {
+        var targetIndex = Random.Range(0, GameController.Walls.Length);
+        var target = GameController.Walls[targetIndex];
+        return target;
     }
 
 
