@@ -160,13 +160,12 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         }
         else
         {
-            if (!_currentTarget.IsPrimaryTarget)
+            if (_currentTarget != null && !_currentTarget.IsPrimaryTarget)
             {
-                var player = GameController.Player.GetRandom();
-                if (player != null && IsTargetReachable(player))
+                if (ShouldTargetPrimary)
                 {
-                    _currentTarget = null;
-                    _nextTargetTime = 0.1f;
+                    _currentTarget = GameController.GetTarget(true, IsTargetReachable);
+                    if (_currentTarget != null) SetTarget(_currentTarget);
                 }
             }
         }
@@ -179,7 +178,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         return path.status == NavMeshPathStatus.PathComplete;
     }
 
-    private bool ShouldTargetPlayer
+    private bool ShouldTargetPrimary
     {
         get
         {

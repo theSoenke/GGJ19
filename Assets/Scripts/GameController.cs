@@ -21,7 +21,8 @@ public class GameController : MonoBehaviour
 
     [Range(0f,1f)]
     public float believer = 0f;
-    private float roundCountdown = 10;
+    [SerializeField]
+    private float roundCountdown = 2;
     private List<EnemyController> enemies = new List<EnemyController>();   
     private WaveController waveController;
 
@@ -51,10 +52,10 @@ public class GameController : MonoBehaviour
 
         if (shouldBePrimary)
         {            
-            list = _targets.Where(t => t.Target.IsPrimaryTarget);           
+            list = list.Where(t => t.Target.IsPrimaryTarget);           
         }
 
-        list = list.Select(t => new TargetConfig(t)).OrderBy(t => t.Propability);
+        list = list.ToList().Select(t => new TargetConfig(t)).OrderBy(t => t.Propability).ToList();
 
         var p = 0;
         foreach (var t in list)
@@ -64,11 +65,14 @@ public class GameController : MonoBehaviour
             t.Propability += oldValue;
         }
 
+       
+
         var tries = 0;
         while (result == null && tries < MaxTargetFindingTries)
         {
             var randomValue = UnityEngine.Random.Range(0, p + 1);
-            var target = list.FirstOrDefault(t => t.Propability <= randomValue);
+            
+            var target = list.FirstOrDefault(t => randomValue <= t.Propability);
 
             if(target != null)
             {
@@ -91,13 +95,13 @@ public class GameController : MonoBehaviour
     void Start()
     {
         _targets = GameObject.FindObjectsOfType<Target>().Select(t => new TargetConfig(t)).OrderBy(t => t.Propability).ToArray();
-        _targetValues = 0;
-        foreach (var t in _targets)
-        {
-            var oldValue = _targetValues;
-            _targetValues += t.Propability;
-            t.Propability += _targetValues;
-        }
+        //_targetValues = 0;
+        //foreach (var t in _targets)
+        //{
+        //    var oldValue = _targetValues;
+        //    _targetValues += t.Propability;
+        //    t.Propability += _targetValues;
+        //}
        
 
         waveController = GetComponent<WaveController>();
