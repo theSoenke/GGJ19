@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(WaveController))]
@@ -210,10 +211,16 @@ public class GameController : MonoBehaviour
 
     private void UpdateBelieverStatus()
     {
-        if(believerBible != null)
+        believerBible.fillAmount = believer;
+        if(believer >= 1)
         {
-            believerBible.fillAmount = believer;
+            Gameover();
         }
+    }
+
+    private void Gameover()
+    {
+        SceneManager.LoadScene("Gameover");
     }
 
     private void UpdateRoundTimer()
