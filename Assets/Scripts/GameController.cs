@@ -138,7 +138,7 @@ public class GameController : MonoBehaviour
 
     private void OnEnemyDead(EnemyDeadMessage msg)
     {
-        if (enemies.Contains(msg.EnemyController))
+        if (Enemies.Contains(msg.EnemyController))
         {
             RemoveEnemy(msg.EnemyController);
         }
