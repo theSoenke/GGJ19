@@ -18,7 +18,7 @@ public class Fence : Target, ITakeDamage
     public void Start()
     {
         RepairIcon.OnIconClicked += Repair;
-        MessageBus.Subscribe<RepairEvent>(this, OnRepairEvent);
+        MessageBus.Subscribe<RepairEventMessage>(this, OnRepairEvent);
     }
 
     public bool TakeDamage(float value)
@@ -28,7 +28,7 @@ public class Fence : Target, ITakeDamage
         {
             State = FenceState.Broken;
             IsAvailable = false;
-            MessageBus.Push(new TargetDestroyed(this));
+            MessageBus.Push(new TargetDestroyedMessage(this));
             return true;
         }
         return false;
@@ -46,7 +46,7 @@ public class Fence : Target, ITakeDamage
     }
 
 
-    private void OnRepairEvent(RepairEvent ev)
+    private void OnRepairEvent(RepairEventMessage ev)
     {
         _repairLocked = ev.IsRepairing;
     }
@@ -72,7 +72,7 @@ public class Fence : Target, ITakeDamage
         if (State == FenceState.Repairing)
         {
             State = FenceState.Broken;
-            MessageBus.Push(new RepairEvent(false));
+            MessageBus.Push(new RepairEventMessage(false));
         }
     }
 
@@ -81,7 +81,7 @@ public class Fence : Target, ITakeDamage
     {
         _repairStartedTime = Time.time;
         State = FenceState.Repairing;
-        MessageBus.Push(new RepairEvent(true));
+        MessageBus.Push(new RepairEventMessage(true));
     }
 
 
@@ -91,7 +91,7 @@ public class Fence : Target, ITakeDamage
         {
             State = FenceState.Ok;
             IsAvailable = true;
-            MessageBus.Push(new RepairEvent(false));
+            MessageBus.Push(new RepairEventMessage(false));
         }
     }
 

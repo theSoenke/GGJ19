@@ -114,20 +114,13 @@ public class GameController : MonoBehaviour
     void Start()
     {
         _targets = GameObject.FindObjectsOfType<Target>().Select(t => new TargetConfig(t)).OrderBy(t => t.Propability).ToArray();
-        //_targetValues = 0;
-        //foreach (var t in _targets)
-        //{
-        //    var oldValue = _targetValues;
-        //    _targetValues += t.Propability;
-        //    t.Propability += _targetValues;
-        //}
        
-
         waveController = GetComponent<WaveController>();
         Walls = GameObject.FindGameObjectsWithTag("Target").Select(t => t.GetComponent<Target>()).ToArray();
         Player = GameObject.FindGameObjectsWithTag("Player").Select(t => t.GetComponent<Target>()).ToArray();
 
-        MessageBus.Subscribe<TargetDestroyed>(this, OnTargetDestroyed);
+        MessageBus.Subscribe<TargetDestroyedMessage>(this, OnTargetDestroyed);
+        MessageBus.Subscribe<EnemyDeadMessage>(this, OnEnemyDead);
     }
 
     void Update()
@@ -136,11 +129,19 @@ public class GameController : MonoBehaviour
         UpdateRoundTimer();
     }
 
-    private void OnTargetDestroyed(TargetDestroyed msg)
+    private void OnTargetDestroyed(TargetDestroyedMessage msg)
     {
         var walls = Walls.ToList();
         walls.Remove(msg.Target);
         Walls = walls.ToArray();
+    }
+
+    private void OnEnemyDead(EnemyDeadMessage msg)
+    {
+        if (enemies.Contains(msg.EnemyController))
+        {
+            RemoveEnemy(msg.EnemyController);
+        }
     }
 
     private void UpdateBelieverStatus()

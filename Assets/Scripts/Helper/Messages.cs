@@ -1,19 +1,29 @@
-﻿public class TargetDestroyed
+﻿public class TargetDestroyedMessage
 {
     public Target Target;
 
-    public TargetDestroyed(Target target)
+    public TargetDestroyedMessage(Target target)
     {
         Target = target;
     }
 }
 
 
-public class RepairEvent
+public class RepairEventMessage
 {
     public bool IsRepairing;
-    public RepairEvent(bool isRepairing)
+    public RepairEventMessage(bool isRepairing)
     {
         IsRepairing = isRepairing;
+    }
+}
+
+public class EnemyDeadMessage
+{
+    public EnemyController EnemyController;
+
+    public EnemyDeadMessage(EnemyController controller)
+    {
+        EnemyController = controller;
     }
 }
