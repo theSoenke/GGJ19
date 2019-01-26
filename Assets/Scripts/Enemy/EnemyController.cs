@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     public float AnimationWalkSpeedFactor = 1.0f;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
@@ -57,6 +57,8 @@ public class EnemyController : MonoBehaviour
 
     public void SetTarget(Target target)
     {
+        if (target == null || target.TargetPosition == null) return;
+
         _currentTarget = target;
         _navMeshAgent.SetDestination(target.TargetPosition.position);
     }
