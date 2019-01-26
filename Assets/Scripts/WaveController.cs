@@ -88,10 +88,10 @@ public class WaveController : MonoBehaviour
             var go = GameObject.Instantiate(p, spawn.position, spawn.rotation);
             var ec = go.GetComponent<EnemyController>();
 
-            var targetIndex = UnityEngine.Random.Range(0, _targets.Length);
-            var target = _targets[targetIndex];
+            //var targetIndex = UnityEngine.Random.Range(0, _targets.Length);
+            //var target = _targets[targetIndex];
 
-            ec.SetTarget(target);
+            //ec.SetTarget(target);
 
             _gameController.AddEnenemy(ec);
 

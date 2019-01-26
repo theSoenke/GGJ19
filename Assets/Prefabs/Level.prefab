@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 968694888}
   - component: {fileID: 3238012105561820019}
   m_Layer: 0
-  m_Name: BorderElement (19)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 137
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &968694892
 MeshFilter:
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &3238012105561820019
 NavMeshObstacle:
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 1509027086}
   - component: {fileID: 8098633523004600123}
   m_Layer: 0
-  m_Name: BorderElement (139)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 138
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1509027090
 MeshFilter:
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 648045711}
   - component: {fileID: 7346772467357223398}
   m_Layer: 0
-  m_Name: BorderElement (136)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,7 +316,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 134
+  m_RootOrder: 136
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165091205511
 MeshFilter:
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 2114507516}
   - component: {fileID: 6937450026723246900}
   m_Layer: 0
-  m_Name: BorderElement (123)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,7 +440,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 121
+  m_RootOrder: 123
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165106304143
 MeshFilter:
@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 1449735878}
   - component: {fileID: 5808890621165019775}
   m_Layer: 0
-  m_Name: BorderElement (70)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -564,7 +564,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 68
+  m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165110876204
 MeshFilter:
@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 662302551}
   - component: {fileID: 2398149017970174058}
   m_Layer: 0
-  m_Name: BorderElement (68)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -688,7 +688,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 66
+  m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165122288416
 MeshFilter:
@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 313543967}
   - component: {fileID: 6570402726666738408}
   m_Layer: 0
-  m_Name: BorderElement (103)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -812,7 +812,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 101
+  m_RootOrder: 103
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165122707496
 MeshFilter:
@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 1235727463}
   - component: {fileID: 259476423422683763}
   m_Layer: 0
-  m_Name: BorderElement (75)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -936,7 +936,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 73
+  m_RootOrder: 75
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165132532396
 MeshFilter:
@@ -1042,7 +1042,7 @@ GameObject:
   - component: {fileID: 1399352838}
   - component: {fileID: 8168428019772790426}
   m_Layer: 0
-  m_Name: BorderElement (124)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1060,7 +1060,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 122
+  m_RootOrder: 124
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165132769759
 MeshFilter:
@@ -1166,7 +1166,7 @@ GameObject:
   - component: {fileID: 585355178}
   - component: {fileID: 8844966275412455360}
   m_Layer: 0
-  m_Name: BorderElement (67)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1184,7 +1184,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 65
+  m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165167027306
 MeshFilter:
@@ -1290,7 +1290,7 @@ GameObject:
   - component: {fileID: 1530304148}
   - component: {fileID: 4869655976486495139}
   m_Layer: 0
-  m_Name: BorderElement (74)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1308,7 +1308,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 72
+  m_RootOrder: 74
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165184992218
 MeshFilter:
@@ -1414,7 +1414,7 @@ GameObject:
   - component: {fileID: 1606321215}
   - component: {fileID: 1493781095287434620}
   m_Layer: 0
-  m_Name: BorderElement (10)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1505,7 +1505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &1493781095287434620
 NavMeshObstacle:
@@ -1538,7 +1538,7 @@ GameObject:
   - component: {fileID: 736331761}
   - component: {fileID: 9205913698555533273}
   m_Layer: 0
-  m_Name: BorderElement (120)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1556,7 +1556,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 118
+  m_RootOrder: 120
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165197708485
 MeshFilter:
@@ -1662,7 +1662,7 @@ GameObject:
   - component: {fileID: 893367081}
   - component: {fileID: 5953966466702269046}
   m_Layer: 0
-  m_Name: BorderElement (51)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1680,7 +1680,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 49
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165199275505
 MeshFilter:
@@ -1786,7 +1786,7 @@ GameObject:
   - component: {fileID: 1564392843}
   - component: {fileID: 6646492555231429978}
   m_Layer: 0
-  m_Name: BorderElement (43)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1804,7 +1804,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 41
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165201149003
 MeshFilter:
@@ -1910,7 +1910,7 @@ GameObject:
   - component: {fileID: 629592513}
   - component: {fileID: 1182161795004533775}
   m_Layer: 0
-  m_Name: BorderElement (96)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1928,7 +1928,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 94
+  m_RootOrder: 96
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165209762799
 MeshFilter:
@@ -2034,7 +2034,7 @@ GameObject:
   - component: {fileID: 1094507655}
   - component: {fileID: 1110837841623827060}
   m_Layer: 0
-  m_Name: BorderElement (32)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2052,7 +2052,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165249139515
 MeshFilter:
@@ -2158,7 +2158,7 @@ GameObject:
   - component: {fileID: 17925899}
   - component: {fileID: 1982947459429618893}
   m_Layer: 0
-  m_Name: BorderElement (37)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2176,7 +2176,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165250938915
 MeshFilter:
@@ -2387,7 +2387,7 @@ GameObject:
   - component: {fileID: 1509527459}
   - component: {fileID: 3787401735854777712}
   m_Layer: 0
-  m_Name: BorderElement (135)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2405,7 +2405,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 133
+  m_RootOrder: 135
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165278481287
 MeshFilter:
@@ -2511,7 +2511,7 @@ GameObject:
   - component: {fileID: 1546275368}
   - component: {fileID: 1133312978063893746}
   m_Layer: 0
-  m_Name: BorderElement (28)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2529,7 +2529,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165286912504
 MeshFilter:
@@ -2635,7 +2635,7 @@ GameObject:
   - component: {fileID: 1707920662}
   - component: {fileID: 5600281476486442468}
   m_Layer: 0
-  m_Name: BorderElement (130)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2653,7 +2653,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 128
+  m_RootOrder: 130
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165303341966
 MeshFilter:
@@ -2759,7 +2759,7 @@ GameObject:
   - component: {fileID: 1414005811}
   - component: {fileID: 5882992412395981165}
   m_Layer: 0
-  m_Name: BorderElement (18)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2850,7 +2850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &5882992412395981165
 NavMeshObstacle:
@@ -2883,7 +2883,7 @@ GameObject:
   - component: {fileID: 106420809}
   - component: {fileID: 4201221582109272139}
   m_Layer: 0
-  m_Name: BorderElement (115)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2901,7 +2901,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 113
+  m_RootOrder: 115
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165336173446
 MeshFilter:
@@ -3007,7 +3007,7 @@ GameObject:
   - component: {fileID: 1470004812}
   - component: {fileID: 420694838719434438}
   m_Layer: 0
-  m_Name: BorderElement (30)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3025,7 +3025,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165356556331
 MeshFilter:
@@ -3131,7 +3131,7 @@ GameObject:
   - component: {fileID: 1024662798}
   - component: {fileID: 8306662238010525782}
   m_Layer: 0
-  m_Name: BorderElement (133)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3149,7 +3149,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 131
+  m_RootOrder: 133
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165364580853
 MeshFilter:
@@ -3255,7 +3255,7 @@ GameObject:
   - component: {fileID: 15185109}
   - component: {fileID: 1031926129748725831}
   m_Layer: 0
-  m_Name: BorderElement (88)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3273,7 +3273,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 86
+  m_RootOrder: 88
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165369415850
 MeshFilter:
@@ -3379,7 +3379,7 @@ GameObject:
   - component: {fileID: 360842049}
   - component: {fileID: 5570171848609676308}
   m_Layer: 0
-  m_Name: BorderElement (58)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3397,7 +3397,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 56
+  m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165373552240
 MeshFilter:
@@ -3503,7 +3503,7 @@ GameObject:
   - component: {fileID: 2099322185}
   - component: {fileID: 3189874886703807557}
   m_Layer: 0
-  m_Name: BorderElement (50)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3521,7 +3521,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 48
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165382182003
 MeshFilter:
@@ -3627,7 +3627,7 @@ GameObject:
   - component: {fileID: 483021629}
   - component: {fileID: 9049060035345041063}
   m_Layer: 0
-  m_Name: BorderElement (4)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3718,7 +3718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &9049060035345041063
 NavMeshObstacle:
@@ -3751,7 +3751,7 @@ GameObject:
   - component: {fileID: 1870079069}
   - component: {fileID: 7161946273312694919}
   m_Layer: 0
-  m_Name: BorderElement (106)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3769,7 +3769,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 104
+  m_RootOrder: 106
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165420060093
 MeshFilter:
@@ -3875,7 +3875,7 @@ GameObject:
   - component: {fileID: 1014710599}
   - component: {fileID: 643446523685382686}
   m_Layer: 0
-  m_Name: BorderElement (92)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3893,7 +3893,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 90
+  m_RootOrder: 92
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165425502444
 MeshFilter:
@@ -3999,7 +3999,7 @@ GameObject:
   - component: {fileID: 571582704}
   - component: {fileID: 3788992737152129879}
   m_Layer: 0
-  m_Name: BorderElement (16)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4090,7 +4090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &3788992737152129879
 NavMeshObstacle:
@@ -4123,7 +4123,7 @@ GameObject:
   - component: {fileID: 1984204213}
   - component: {fileID: 5702691768281976151}
   m_Layer: 0
-  m_Name: BorderElement (77)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4141,7 +4141,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 75
+  m_RootOrder: 77
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165432450098
 MeshFilter:
@@ -4247,7 +4247,7 @@ GameObject:
   - component: {fileID: 594381285}
   - component: {fileID: 3312179269246221824}
   m_Layer: 0
-  m_Name: BorderElement (87)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4265,7 +4265,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 85
+  m_RootOrder: 87
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165463246856
 MeshFilter:
@@ -4371,7 +4371,7 @@ GameObject:
   - component: {fileID: 1601866931}
   - component: {fileID: 7653078368197047298}
   m_Layer: 0
-  m_Name: BorderElement (89)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4389,7 +4389,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 87
+  m_RootOrder: 89
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165475987741
 MeshFilter:
@@ -4495,7 +4495,7 @@ GameObject:
   - component: {fileID: 1039390353}
   - component: {fileID: 1924380654144352555}
   m_Layer: 0
-  m_Name: BorderElement (47)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4513,7 +4513,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 45
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165491972442
 MeshFilter:
@@ -4619,7 +4619,7 @@ GameObject:
   - component: {fileID: 1354260745}
   - component: {fileID: 1721404593238336623}
   m_Layer: 0
-  m_Name: BorderElement (111)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4637,7 +4637,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 109
+  m_RootOrder: 111
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165495927570
 MeshFilter:
@@ -4743,7 +4743,7 @@ GameObject:
   - component: {fileID: 1373795545}
   - component: {fileID: 8135497954274870020}
   m_Layer: 0
-  m_Name: BorderElement (84)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4761,7 +4761,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 82
+  m_RootOrder: 84
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165496297021
 MeshFilter:
@@ -4867,7 +4867,7 @@ GameObject:
   - component: {fileID: 1661514481}
   - component: {fileID: 4843486106256756846}
   m_Layer: 0
-  m_Name: BorderElement (98)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4885,7 +4885,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 96
+  m_RootOrder: 98
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165514650143
 MeshFilter:
@@ -4991,7 +4991,7 @@ GameObject:
   - component: {fileID: 561697008}
   - component: {fileID: 7834276052182888418}
   m_Layer: 0
-  m_Name: BorderElement (95)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5009,7 +5009,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 93
+  m_RootOrder: 95
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165518052169
 MeshFilter:
@@ -5115,7 +5115,7 @@ GameObject:
   - component: {fileID: 1002526605}
   - component: {fileID: 20004602865604176}
   m_Layer: 0
-  m_Name: BorderElement (21)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5133,7 +5133,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165526711981
 MeshFilter:
@@ -5239,7 +5239,7 @@ GameObject:
   - component: {fileID: 1520082367}
   - component: {fileID: 6415811282516420899}
   m_Layer: 0
-  m_Name: BorderElement (102)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5257,7 +5257,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 100
+  m_RootOrder: 102
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165533949261
 MeshFilter:
@@ -5363,7 +5363,7 @@ GameObject:
   - component: {fileID: 997444475}
   - component: {fileID: 682308003844055165}
   m_Layer: 0
-  m_Name: BorderElement (56)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5381,7 +5381,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 54
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165539625508
 MeshFilter:
@@ -5487,7 +5487,7 @@ GameObject:
   - component: {fileID: 413562258}
   - component: {fileID: 3036516916720741678}
   m_Layer: 0
-  m_Name: BorderElement (91)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5505,7 +5505,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 89
+  m_RootOrder: 91
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165539829662
 MeshFilter:
@@ -5611,7 +5611,7 @@ GameObject:
   - component: {fileID: 1804168788}
   - component: {fileID: 5157308594260548344}
   m_Layer: 0
-  m_Name: BorderElement (108)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5629,7 +5629,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 106
+  m_RootOrder: 108
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165543434813
 MeshFilter:
@@ -5735,7 +5735,7 @@ GameObject:
   - component: {fileID: 1339816587}
   - component: {fileID: 884703921621748408}
   m_Layer: 0
-  m_Name: BorderElement (5)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5826,7 +5826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &884703921621748408
 NavMeshObstacle:
@@ -5859,7 +5859,7 @@ GameObject:
   - component: {fileID: 596341727}
   - component: {fileID: 5623109782225928041}
   m_Layer: 0
-  m_Name: BorderElement (72)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5877,7 +5877,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 70
+  m_RootOrder: 72
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165547861786
 MeshFilter:
@@ -5983,7 +5983,7 @@ GameObject:
   - component: {fileID: 5860592}
   - component: {fileID: 3223960300517478151}
   m_Layer: 0
-  m_Name: BorderElement (138)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6001,7 +6001,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 136
+  m_RootOrder: 138
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165573434491
 MeshFilter:
@@ -6107,7 +6107,7 @@ GameObject:
   - component: {fileID: 1487119008}
   - component: {fileID: 570064382327968414}
   m_Layer: 0
-  m_Name: BorderElement (44)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6125,7 +6125,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 42
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165584609622
 MeshFilter:
@@ -6231,7 +6231,7 @@ GameObject:
   - component: {fileID: 1227727479}
   - component: {fileID: 5563317234282259826}
   m_Layer: 0
-  m_Name: BorderElement (76)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6249,7 +6249,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 74
+  m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165625444077
 MeshFilter:
@@ -6355,7 +6355,7 @@ GameObject:
   - component: {fileID: 377254321}
   - component: {fileID: 4687565571721099735}
   m_Layer: 0
-  m_Name: BorderElement (8)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6446,7 +6446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &4687565571721099735
 NavMeshObstacle:
@@ -6479,7 +6479,7 @@ GameObject:
   - component: {fileID: 387596979}
   - component: {fileID: 4279912406445091915}
   m_Layer: 0
-  m_Name: BorderElement (45)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6497,7 +6497,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 43
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165702397651
 MeshFilter:
@@ -6603,7 +6603,7 @@ GameObject:
   - component: {fileID: 474185812}
   - component: {fileID: 2297011277410798743}
   m_Layer: 0
-  m_Name: BorderElement (26)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6621,7 +6621,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165705382513
 MeshFilter:
@@ -6727,7 +6727,7 @@ GameObject:
   - component: {fileID: 125656442}
   - component: {fileID: 5298679984365834911}
   m_Layer: 0
-  m_Name: BorderElement (131)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6745,7 +6745,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 129
+  m_RootOrder: 131
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165714093832
 MeshFilter:
@@ -6851,7 +6851,7 @@ GameObject:
   - component: {fileID: 1712767547}
   - component: {fileID: 5497013000272743905}
   m_Layer: 0
-  m_Name: BorderElement (107)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6869,7 +6869,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 105
+  m_RootOrder: 107
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165759693771
 MeshFilter:
@@ -6975,7 +6975,7 @@ GameObject:
   - component: {fileID: 588081513}
   - component: {fileID: 5001467141660957376}
   m_Layer: 0
-  m_Name: BorderElement (118)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6993,7 +6993,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 116
+  m_RootOrder: 118
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165775549192
 MeshFilter:
@@ -7099,7 +7099,7 @@ GameObject:
   - component: {fileID: 1981944983}
   - component: {fileID: 5081290763947543961}
   m_Layer: 0
-  m_Name: BorderElement (100)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7117,7 +7117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 98
+  m_RootOrder: 100
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165812014329
 MeshFilter:
@@ -7223,7 +7223,7 @@ GameObject:
   - component: {fileID: 1206416630}
   - component: {fileID: 6439268258144622465}
   m_Layer: 0
-  m_Name: BorderElement (41)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7241,7 +7241,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 39
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165830671256
 MeshFilter:
@@ -7347,7 +7347,7 @@ GameObject:
   - component: {fileID: 208261747}
   - component: {fileID: 7939642020298078654}
   m_Layer: 0
-  m_Name: BorderElement (79)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7365,7 +7365,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 77
+  m_RootOrder: 79
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165839001133
 MeshFilter:
@@ -7471,7 +7471,7 @@ GameObject:
   - component: {fileID: 606394774}
   - component: {fileID: 6156368350801428287}
   m_Layer: 0
-  m_Name: BorderElement (81)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7489,7 +7489,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 79
+  m_RootOrder: 81
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165839181839
 MeshFilter:
@@ -7595,7 +7595,7 @@ GameObject:
   - component: {fileID: 1771895248}
   - component: {fileID: 267413033491994158}
   m_Layer: 0
-  m_Name: BorderElement (109)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7613,7 +7613,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 107
+  m_RootOrder: 109
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165839227892
 MeshFilter:
@@ -7719,7 +7719,7 @@ GameObject:
   - component: {fileID: 859659719}
   - component: {fileID: 310381786141071877}
   m_Layer: 0
-  m_Name: BorderElement (3)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7810,7 +7810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &310381786141071877
 NavMeshObstacle:
@@ -7843,7 +7843,7 @@ GameObject:
   - component: {fileID: 1931295375}
   - component: {fileID: 8740311957984558060}
   m_Layer: 0
-  m_Name: BorderElement (90)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7861,7 +7861,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 88
+  m_RootOrder: 90
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165899210725
 MeshFilter:
@@ -7967,7 +7967,7 @@ GameObject:
   - component: {fileID: 2058922671}
   - component: {fileID: 8419753944026190003}
   m_Layer: 0
-  m_Name: BorderElement (7)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8058,7 +8058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &8419753944026190003
 NavMeshObstacle:
@@ -8091,7 +8091,7 @@ GameObject:
   - component: {fileID: 1508836518}
   - component: {fileID: 3524953897074002123}
   m_Layer: 0
-  m_Name: BorderElement (59)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8109,7 +8109,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 57
+  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165948619812
 MeshFilter:
@@ -8215,7 +8215,7 @@ GameObject:
   - component: {fileID: 1463344381}
   - component: {fileID: 913632932679986953}
   m_Layer: 0
-  m_Name: BorderElement (73)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8233,7 +8233,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 71
+  m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236165974005287
 MeshFilter:
@@ -8339,7 +8339,7 @@ GameObject:
   - component: {fileID: 974452445}
   - component: {fileID: 5393094185492948540}
   m_Layer: 0
-  m_Name: BorderElement (134)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8357,7 +8357,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 132
+  m_RootOrder: 134
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166008043023
 MeshFilter:
@@ -8463,7 +8463,7 @@ GameObject:
   - component: {fileID: 1150067717}
   - component: {fileID: 1684022565097602291}
   m_Layer: 0
-  m_Name: BorderElement (55)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8481,7 +8481,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 53
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166014662372
 MeshFilter:
@@ -8587,7 +8587,7 @@ GameObject:
   - component: {fileID: 356533067}
   - component: {fileID: 5350173598072534436}
   m_Layer: 0
-  m_Name: BorderElement (132)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8605,7 +8605,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 130
+  m_RootOrder: 132
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166029274896
 MeshFilter:
@@ -8711,7 +8711,7 @@ GameObject:
   - component: {fileID: 1125947056}
   - component: {fileID: 5705476717285646285}
   m_Layer: 0
-  m_Name: BorderElement (33)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8729,7 +8729,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166059761283
 MeshFilter:
@@ -8835,7 +8835,7 @@ GameObject:
   - component: {fileID: 2030477351}
   - component: {fileID: 6380321485042312968}
   m_Layer: 0
-  m_Name: BorderElement (27)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8853,7 +8853,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166074526018
 MeshFilter:
@@ -8959,7 +8959,7 @@ GameObject:
   - component: {fileID: 1129707042}
   - component: {fileID: 675307130788513911}
   m_Layer: 0
-  m_Name: BorderElement (97)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8977,7 +8977,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 95
+  m_RootOrder: 97
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166083112322
 MeshFilter:
@@ -9083,7 +9083,7 @@ GameObject:
   - component: {fileID: 2021709689}
   - component: {fileID: 4835879066159434652}
   m_Layer: 0
-  m_Name: BorderElement (121)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9101,7 +9101,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 119
+  m_RootOrder: 121
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166102624924
 MeshFilter:
@@ -9207,7 +9207,7 @@ GameObject:
   - component: {fileID: 2087824049}
   - component: {fileID: 8702932937850953541}
   m_Layer: 0
-  m_Name: BorderElement (83)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9225,7 +9225,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 81
+  m_RootOrder: 83
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166108907088
 MeshFilter:
@@ -9331,7 +9331,7 @@ GameObject:
   - component: {fileID: 1479606768}
   - component: {fileID: 7931174218445769993}
   m_Layer: 0
-  m_Name: BorderElement (38)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9349,7 +9349,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 36
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166113492539
 MeshFilter:
@@ -9455,7 +9455,7 @@ GameObject:
   - component: {fileID: 1954555631}
   - component: {fileID: 3262701195069883212}
   m_Layer: 0
-  m_Name: BorderElement (125)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9473,7 +9473,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 123
+  m_RootOrder: 125
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166119546463
 MeshFilter:
@@ -9579,7 +9579,7 @@ GameObject:
   - component: {fileID: 137784473}
   - component: {fileID: 7152934610018050619}
   m_Layer: 0
-  m_Name: BorderElement (85)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9597,7 +9597,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 83
+  m_RootOrder: 85
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166125592227
 MeshFilter:
@@ -9703,7 +9703,7 @@ GameObject:
   - component: {fileID: 732538531}
   - component: {fileID: 7435319468904116098}
   m_Layer: 0
-  m_Name: BorderElement (24)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9721,7 +9721,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166146349499
 MeshFilter:
@@ -9827,7 +9827,7 @@ GameObject:
   - component: {fileID: 494757443}
   - component: {fileID: 6827365649951590044}
   m_Layer: 0
-  m_Name: BorderElement (101)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9845,7 +9845,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 99
+  m_RootOrder: 101
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166182441915
 MeshFilter:
@@ -9951,7 +9951,7 @@ GameObject:
   - component: {fileID: 472473567}
   - component: {fileID: 8514543890928582456}
   m_Layer: 0
-  m_Name: BorderElement (113)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9969,7 +9969,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 111
+  m_RootOrder: 113
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166204008433
 MeshFilter:
@@ -10075,7 +10075,7 @@ GameObject:
   - component: {fileID: 2033194366}
   - component: {fileID: 9220177455921038567}
   m_Layer: 0
-  m_Name: BorderElement (104)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10093,7 +10093,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 102
+  m_RootOrder: 104
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166244433940
 MeshFilter:
@@ -10199,7 +10199,7 @@ GameObject:
   - component: {fileID: 1045172512}
   - component: {fileID: 1360848166604100306}
   m_Layer: 0
-  m_Name: BorderElement (46)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10217,7 +10217,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 44
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166258417637
 MeshFilter:
@@ -10323,7 +10323,7 @@ GameObject:
   - component: {fileID: 618243525}
   - component: {fileID: 6175664019818104005}
   m_Layer: 0
-  m_Name: BorderElement (99)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10341,7 +10341,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 97
+  m_RootOrder: 99
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166261673123
 MeshFilter:
@@ -10447,7 +10447,7 @@ GameObject:
   - component: {fileID: 902163882}
   - component: {fileID: 7050768407803966875}
   m_Layer: 0
-  m_Name: BorderElement (110)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10465,7 +10465,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 108
+  m_RootOrder: 110
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166263952119
 MeshFilter:
@@ -10571,7 +10571,7 @@ GameObject:
   - component: {fileID: 712095998}
   - component: {fileID: 597337313214620180}
   m_Layer: 0
-  m_Name: BorderElement (49)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10589,7 +10589,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 47
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166305873940
 MeshFilter:
@@ -10695,7 +10695,7 @@ GameObject:
   - component: {fileID: 1260050449}
   - component: {fileID: 8218657068454076312}
   m_Layer: 0
-  m_Name: BorderElement (128)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10713,7 +10713,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 126
+  m_RootOrder: 128
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166306209403
 MeshFilter:
@@ -10819,7 +10819,7 @@ GameObject:
   - component: {fileID: 47124315}
   - component: {fileID: 5018162786266669621}
   m_Layer: 0
-  m_Name: BorderElement (112)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10837,7 +10837,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 110
+  m_RootOrder: 112
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166318568959
 MeshFilter:
@@ -10943,7 +10943,7 @@ GameObject:
   - component: {fileID: 1391458042}
   - component: {fileID: 7687957795688674710}
   m_Layer: 0
-  m_Name: BorderElement (71)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10961,7 +10961,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 69
+  m_RootOrder: 71
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166322045473
 MeshFilter:
@@ -11067,7 +11067,7 @@ GameObject:
   - component: {fileID: 4669922}
   - component: {fileID: 7052906333431937562}
   m_Layer: 0
-  m_Name: BorderElement (31)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11085,7 +11085,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166355922799
 MeshFilter:
@@ -11191,7 +11191,7 @@ GameObject:
   - component: {fileID: 34858265}
   - component: {fileID: 3827907381128736457}
   m_Layer: 0
-  m_Name: BorderElement (52)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11209,7 +11209,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 50
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166357776808
 MeshFilter:
@@ -11315,7 +11315,7 @@ GameObject:
   - component: {fileID: 2007466840}
   - component: {fileID: 6603815398274452272}
   m_Layer: 0
-  m_Name: BorderElement (6)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11406,7 +11406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &6603815398274452272
 NavMeshObstacle:
@@ -11439,7 +11439,7 @@ GameObject:
   - component: {fileID: 1275402251}
   - component: {fileID: 7815680255473578626}
   m_Layer: 0
-  m_Name: BorderElement (94)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11457,7 +11457,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 92
+  m_RootOrder: 94
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166373920231
 MeshFilter:
@@ -11563,7 +11563,7 @@ GameObject:
   - component: {fileID: 620550261}
   - component: {fileID: 816382252963564952}
   m_Layer: 0
-  m_Name: BorderElement (86)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11581,7 +11581,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 84
+  m_RootOrder: 86
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166385880453
 MeshFilter:
@@ -11687,7 +11687,7 @@ GameObject:
   - component: {fileID: 137241375}
   - component: {fileID: 1322816473371908172}
   m_Layer: 0
-  m_Name: BorderElement (137)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11705,7 +11705,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 135
+  m_RootOrder: 137
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166412497612
 MeshFilter:
@@ -11811,7 +11811,7 @@ GameObject:
   - component: {fileID: 902999581}
   - component: {fileID: 3829628709107174613}
   m_Layer: 0
-  m_Name: BorderElement (129)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11829,7 +11829,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 127
+  m_RootOrder: 129
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166415849576
 MeshFilter:
@@ -11935,7 +11935,7 @@ GameObject:
   - component: {fileID: 978294638}
   - component: {fileID: 4541182609224322019}
   m_Layer: 0
-  m_Name: BorderElement (23)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11953,7 +11953,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166451980495
 MeshFilter:
@@ -12059,7 +12059,7 @@ GameObject:
   - component: {fileID: 1975733476}
   - component: {fileID: 4968838445027928751}
   m_Layer: 0
-  m_Name: BorderElement (64)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12077,7 +12077,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 62
+  m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166456367191
 MeshFilter:
@@ -12183,7 +12183,7 @@ GameObject:
   - component: {fileID: 1986980215}
   - component: {fileID: 4791828125646936062}
   m_Layer: 0
-  m_Name: BorderElement (117)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12201,7 +12201,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 115
+  m_RootOrder: 117
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166471310901
 MeshFilter:
@@ -12307,7 +12307,7 @@ GameObject:
   - component: {fileID: 745502269}
   - component: {fileID: 8308403454239612891}
   m_Layer: 0
-  m_Name: BorderElement (119)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12325,7 +12325,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 117
+  m_RootOrder: 119
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166473027651
 MeshFilter:
@@ -12431,7 +12431,7 @@ GameObject:
   - component: {fileID: 1189652347}
   - component: {fileID: 2357347768953258144}
   m_Layer: 0
-  m_Name: BorderElement (65)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12449,7 +12449,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 63
+  m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166479834735
 MeshFilter:
@@ -12555,7 +12555,7 @@ GameObject:
   - component: {fileID: 1236727272}
   - component: {fileID: 4897212161433958343}
   m_Layer: 0
-  m_Name: BorderElement (35)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12573,7 +12573,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166510796455
 MeshFilter:
@@ -12679,7 +12679,7 @@ GameObject:
   - component: {fileID: 434588270}
   - component: {fileID: 5298820413932164027}
   m_Layer: 0
-  m_Name: BorderElement (116)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12697,7 +12697,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 114
+  m_RootOrder: 116
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166511368921
 MeshFilter:
@@ -12803,7 +12803,7 @@ GameObject:
   - component: {fileID: 1870267627}
   - component: {fileID: 8191063749669794259}
   m_Layer: 0
-  m_Name: BorderElement (93)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12821,7 +12821,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 91
+  m_RootOrder: 93
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166530592617
 MeshFilter:
@@ -13033,7 +13033,7 @@ GameObject:
   - component: {fileID: 279565164}
   - component: {fileID: 643525589562208059}
   m_Layer: 0
-  m_Name: BorderElement (9)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13124,7 +13124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &643525589562208059
 NavMeshObstacle:
@@ -13157,7 +13157,7 @@ GameObject:
   - component: {fileID: 95124710}
   - component: {fileID: 5849081765333991253}
   m_Layer: 0
-  m_Name: BorderElement (48)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13175,7 +13175,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 46
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166544904065
 MeshFilter:
@@ -13281,7 +13281,7 @@ GameObject:
   - component: {fileID: 589864423}
   - component: {fileID: 717221098235611586}
   m_Layer: 0
-  m_Name: BorderElement (1)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13372,7 +13372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &717221098235611586
 NavMeshObstacle:
@@ -13405,7 +13405,7 @@ GameObject:
   - component: {fileID: 978092209}
   - component: {fileID: 4500197985048873866}
   m_Layer: 0
-  m_Name: BorderElement (66)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13423,7 +13423,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 64
+  m_RootOrder: 66
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166563389581
 MeshFilter:
@@ -13529,7 +13529,7 @@ GameObject:
   - component: {fileID: 1302305869}
   - component: {fileID: 3627220181565777503}
   m_Layer: 0
-  m_Name: BorderElement (53)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13547,7 +13547,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 51
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166591351513
 MeshFilter:
@@ -13653,7 +13653,7 @@ GameObject:
   - component: {fileID: 1401058203}
   - component: {fileID: 3473230811440697293}
   m_Layer: 0
-  m_Name: BorderElement (42)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13671,7 +13671,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 40
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166616116769
 MeshFilter:
@@ -13777,7 +13777,7 @@ GameObject:
   - component: {fileID: 569974260}
   - component: {fileID: 2080281063549815303}
   m_Layer: 0
-  m_Name: BorderElement (78)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13795,7 +13795,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 76
+  m_RootOrder: 78
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166635557108
 MeshFilter:
@@ -13901,7 +13901,7 @@ GameObject:
   - component: {fileID: 51929684}
   - component: {fileID: 2844668828594535930}
   m_Layer: 0
-  m_Name: BorderElement (29)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13919,7 +13919,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166646444986
 MeshFilter:
@@ -14025,7 +14025,7 @@ GameObject:
   - component: {fileID: 1742706132}
   - component: {fileID: 3009825966985923161}
   m_Layer: 0
-  m_Name: BorderElement (13)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14116,7 +14116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &3009825966985923161
 NavMeshObstacle:
@@ -14149,7 +14149,7 @@ GameObject:
   - component: {fileID: 1032065001}
   - component: {fileID: 3051780739308527673}
   m_Layer: 0
-  m_Name: BorderElement (61)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14167,7 +14167,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 59
+  m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166662339572
 MeshFilter:
@@ -14273,7 +14273,7 @@ GameObject:
   - component: {fileID: 55406167}
   - component: {fileID: 7581650049397286195}
   m_Layer: 0
-  m_Name: BorderElement (20)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14291,7 +14291,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166763310033
 MeshFilter:
@@ -14397,7 +14397,7 @@ GameObject:
   - component: {fileID: 1514075581}
   - component: {fileID: 8530102488379304217}
   m_Layer: 0
-  m_Name: BorderElement (63)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14415,7 +14415,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 61
+  m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166791350078
 MeshFilter:
@@ -14521,7 +14521,7 @@ GameObject:
   - component: {fileID: 351296079}
   - component: {fileID: 2685336604301226190}
   m_Layer: 0
-  m_Name: BorderElement (40)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14539,7 +14539,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 38
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166831352007
 MeshFilter:
@@ -14645,7 +14645,7 @@ GameObject:
   - component: {fileID: 933613931}
   - component: {fileID: 6754284703901737182}
   m_Layer: 0
-  m_Name: BorderElement (22)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14663,7 +14663,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166850503032
 MeshFilter:
@@ -14769,7 +14769,7 @@ GameObject:
   - component: {fileID: 1072499704}
   - component: {fileID: 6157675667243667164}
   m_Layer: 0
-  m_Name: BorderElement (57)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14787,7 +14787,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 55
+  m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166852325878
 MeshFilter:
@@ -14893,7 +14893,7 @@ GameObject:
   - component: {fileID: 861675948}
   - component: {fileID: 4765140467233157353}
   m_Layer: 0
-  m_Name: BorderElement (54)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14911,7 +14911,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 52
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166865595539
 MeshFilter:
@@ -15017,7 +15017,7 @@ GameObject:
   - component: {fileID: 1401200484}
   - component: {fileID: 2211867397158493070}
   m_Layer: 0
-  m_Name: BorderElement (80)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15035,7 +15035,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 78
+  m_RootOrder: 80
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166869781560
 MeshFilter:
@@ -15141,7 +15141,7 @@ GameObject:
   - component: {fileID: 116517431}
   - component: {fileID: 553193631230353770}
   m_Layer: 0
-  m_Name: BorderElement (105)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15159,7 +15159,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 103
+  m_RootOrder: 105
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166873177706
 MeshFilter:
@@ -15265,7 +15265,7 @@ GameObject:
   - component: {fileID: 1389353603}
   - component: {fileID: 2362450424016931224}
   m_Layer: 0
-  m_Name: BorderElement (82)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15283,7 +15283,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 80
+  m_RootOrder: 82
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166874374969
 MeshFilter:
@@ -15389,7 +15389,7 @@ GameObject:
   - component: {fileID: 1848095288}
   - component: {fileID: 813601817131087250}
   m_Layer: 0
-  m_Name: BorderElement (39)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15407,7 +15407,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 37
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166894373850
 MeshFilter:
@@ -15513,7 +15513,7 @@ GameObject:
   - component: {fileID: 2102601172}
   - component: {fileID: 923731036606941902}
   m_Layer: 0
-  m_Name: BorderElement (127)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15531,7 +15531,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 125
+  m_RootOrder: 127
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166900689324
 MeshFilter:
@@ -15637,7 +15637,7 @@ GameObject:
   - component: {fileID: 85174033}
   - component: {fileID: 3555769437148925164}
   m_Layer: 0
-  m_Name: BorderElement (12)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15728,7 +15728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &3555769437148925164
 NavMeshObstacle:
@@ -15761,7 +15761,7 @@ GameObject:
   - component: {fileID: 1301318763}
   - component: {fileID: 855580206498691492}
   m_Layer: 0
-  m_Name: BorderElement (2)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15852,7 +15852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &855580206498691492
 NavMeshObstacle:
@@ -15885,7 +15885,7 @@ GameObject:
   - component: {fileID: 1793071045}
   - component: {fileID: 3228350427122442004}
   m_Layer: 0
-  m_Name: BorderElement (34)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15903,7 +15903,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166967918027
 MeshFilter:
@@ -16009,7 +16009,7 @@ GameObject:
   - component: {fileID: 459698515}
   - component: {fileID: 7769401378459965215}
   m_Layer: 0
-  m_Name: BorderElement (122)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16027,7 +16027,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 120
+  m_RootOrder: 122
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236166988771919
 MeshFilter:
@@ -16133,7 +16133,7 @@ GameObject:
   - component: {fileID: 207752583}
   - component: {fileID: 2641921213045742205}
   m_Layer: 0
-  m_Name: BorderElement (25)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16151,7 +16151,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236167004802049
 MeshFilter:
@@ -16257,7 +16257,7 @@ GameObject:
   - component: {fileID: 1057618806}
   - component: {fileID: 7946576835724946864}
   m_Layer: 0
-  m_Name: BorderElement (114)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16275,7 +16275,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 112
+  m_RootOrder: 114
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236167025006245
 MeshFilter:
@@ -16381,7 +16381,7 @@ GameObject:
   - component: {fileID: 844915994}
   - component: {fileID: 7613278368300663885}
   m_Layer: 0
-  m_Name: BorderElement (69)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16399,7 +16399,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 67
+  m_RootOrder: 69
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236167049901862
 MeshFilter:
@@ -16505,7 +16505,7 @@ GameObject:
   - component: {fileID: 1095410725}
   - component: {fileID: 6746384403931063984}
   m_Layer: 0
-  m_Name: BorderElement (126)
+  m_Name: LeftBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16523,7 +16523,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 124
+  m_RootOrder: 126
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236167088762265
 MeshFilter:
@@ -16629,7 +16629,7 @@ GameObject:
   - component: {fileID: 140206362}
   - component: {fileID: 6437347564997095146}
   m_Layer: 0
-  m_Name: BorderElement (14)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16720,7 +16720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &6437347564997095146
 NavMeshObstacle:
@@ -16753,7 +16753,7 @@ GameObject:
   - component: {fileID: 40726827}
   - component: {fileID: 1161476724109592806}
   m_Layer: 0
-  m_Name: BorderElement (60)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16771,7 +16771,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 58
+  m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236167103268842
 MeshFilter:
@@ -16912,7 +16912,7 @@ GameObject:
   - component: {fileID: 1946042452}
   - component: {fileID: 2442848142199754881}
   m_Layer: 0
-  m_Name: BorderElement (17)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17003,7 +17003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &2442848142199754881
 NavMeshObstacle:
@@ -17036,7 +17036,7 @@ GameObject:
   - component: {fileID: 946573143}
   - component: {fileID: 3568838287387969965}
   m_Layer: 0
-  m_Name: BorderElement (62)
+  m_Name: RightBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17054,7 +17054,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.1999999, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 60
+  m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236167146412829
 MeshFilter:
@@ -17160,7 +17160,7 @@ GameObject:
   - component: {fileID: 912167569}
   - component: {fileID: 6937844828200135614}
   m_Layer: 0
-  m_Name: BorderElement (36)
+  m_Name: BackBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17178,7 +17178,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1362344458717067644}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193236167148889420
 MeshFilter:
@@ -17284,7 +17284,7 @@ GameObject:
   - component: {fileID: 145358208}
   - component: {fileID: 2180142800281979863}
   m_Layer: 0
-  m_Name: BorderElement (11)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17375,7 +17375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &2180142800281979863
 NavMeshObstacle:
@@ -17408,7 +17408,7 @@ GameObject:
   - component: {fileID: 1950804365}
   - component: {fileID: 8845692435691866340}
   m_Layer: 0
-  m_Name: BorderElement (15)
+  m_Name: FrontBorders
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17499,7 +17499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Health: 50
+  Health: 20
   DamageType: 0
 --- !u!208 &8845692435691866340
 NavMeshObstacle:
@@ -17592,6 +17592,7 @@ Transform:
   - {fileID: 2193236165428584197}
   - {fileID: 2193236167120699550}
   - {fileID: 2193236165333140240}
+  - {fileID: 968694887}
   - {fileID: 2193236166763310036}
   - {fileID: 2193236165526711952}
   - {fileID: 2193236166850503035}
@@ -17610,6 +17611,7 @@ Transform:
   - {fileID: 2193236166510796458}
   - {fileID: 2193236167148889423}
   - {fileID: 2193236165250938918}
+  - {fileID: 1509027085}
   - {fileID: 2193236166113492542}
   - {fileID: 2193236166894373853}
   - {fileID: 2193236166831352010}
@@ -17711,8 +17713,6 @@ Transform:
   - {fileID: 2193236165091205514}
   - {fileID: 2193236166412497615}
   - {fileID: 2193236165573434494}
-  - {fileID: 968694887}
-  - {fileID: 1509027085}
   m_Father: {fileID: 2193236167105851113}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

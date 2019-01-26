@@ -352,7 +352,6 @@ GameObject:
   - component: {fileID: 7897766995884364231}
   - component: {fileID: 132228082422424999}
   - component: {fileID: 3689660515920728824}
-  - component: {fileID: 7413654300446827944}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -404,7 +403,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4393099573896319882}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Speed: 3
   m_Acceleration: 10
   avoidancePriority: 50
@@ -416,7 +415,7 @@ NavMeshAgent:
   m_Height: 1.7
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &3689660515920728824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,25 +428,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3835b7111d48374ea947ded9fb64baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distanceToTarget: 0.75
+  _distanceToTarget: 1
   ObjectDamage: 20
   PlayerDamage: 10
   DamageCooldown: 2
   AnimationWalkSpeedFactor: 0.82
---- !u!136 &7413654300446827944
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4393099573896319882}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.47
-  m_Height: 1.86
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.96, z: 0}
+  GameController: {fileID: 0}
 --- !u!1 &5263647521126532248
 GameObject:
   m_ObjectHideFlags: 0

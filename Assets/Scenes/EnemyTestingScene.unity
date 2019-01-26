@@ -986,6 +986,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7547379891805673368, guid: 63b12afb39201b74784ed29dfba5d7e5,
+        type: 3}
+      propertyPath: believerStatus
+      value: 
+      objectReference: {fileID: 1957721191}
+    - target: {fileID: 7547379891805673368, guid: 63b12afb39201b74784ed29dfba5d7e5,
+        type: 3}
+      propertyPath: nextRoundTimer
+      value: 
+      objectReference: {fileID: 267569750}
     - target: {fileID: 7547379891805673369, guid: 63b12afb39201b74784ed29dfba5d7e5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1041,15 +1051,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7547379891805673368, guid: 63b12afb39201b74784ed29dfba5d7e5,
-        type: 3}
-      propertyPath: believerStatus
-      value: 
-      objectReference: {fileID: 1957721191}
-    - target: {fileID: 7547379891805673368, guid: 63b12afb39201b74784ed29dfba5d7e5,
-        type: 3}
-      propertyPath: nextRoundTimer
-      value: 
-      objectReference: {fileID: 267569750}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63b12afb39201b74784ed29dfba5d7e5, type: 3}
