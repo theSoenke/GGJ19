@@ -42,9 +42,17 @@ public class EnemyController : MonoBehaviour, ITakeDamage
     }
 
 
-    // Update is called once per frame
     void Update()
     {
+        if(_partyTimeLeft > 0)
+        {
+            _partyTimeLeft -= Time.deltaTime;
+            if(_partyTimeLeft <= 0)
+            {
+                _currentTarget = null;
+            }
+        }
+
         if (_currentTarget == null)
         {
             _nextTargetTime -= Time.deltaTime;
