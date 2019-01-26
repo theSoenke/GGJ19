@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour
     private List<EnemyController> enemies = new List<EnemyController>();   
     private WaveController waveController;
 
+    private bool _isWaveActive;
+
     public void AddEnenemy(EnemyController enemy)
     {
         enemy.GameController = this;
@@ -33,6 +35,7 @@ public class GameController : MonoBehaviour
     public void StartWave()
     {
         waveController.StartWave();
+        _isWaveActive = true;
     }
 
     void Start()
@@ -64,13 +67,18 @@ public class GameController : MonoBehaviour
 
     private void UpdateRoundTimer()
     {
-        if(roundCountdown > 0)
+        if (!_isWaveActive)
         {
-            nextRoundMessage.text = "Incoming in " + roundCountdown.ToString("0");
-            roundCountdown -= Time.deltaTime;
-        } else
-        {
-            nextRoundMessage.gameObject.SetActive(false);
-        }
+            if (roundCountdown > 0)
+            {
+                nextRoundMessage.text = "Incoming in " + roundCountdown.ToString("0");
+                roundCountdown -= Time.deltaTime;
+            }
+            else
+            {
+                nextRoundMessage.gameObject.SetActive(false);
+                StartWave();
+            }
+        }       
     }
 }

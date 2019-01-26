@@ -123,7 +123,11 @@ public class EnemyController : MonoBehaviour
         if(_currentTarget != null)
         {
             Debug.DrawLine(transform.position, _currentTarget.TargetPosition.position, Color.red);
-            
+
+            if (_isTargetPlayer)
+            {
+                _navMeshAgent.SetDestination(_currentTarget.TargetPosition.position);
+            }
 
             var takeDamage = _currentTarget as ITakeDamage;
             if (takeDamage != null)
