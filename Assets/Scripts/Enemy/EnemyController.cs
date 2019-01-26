@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
 
-        MessageBus.Subscribe<TargetDestroyed>(OnTargetDestroyed);
+        MessageBus.Subscribe<TargetDestroyed>(this, OnTargetDestroyed);
     }
 
     void Start()
@@ -90,6 +90,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         _health -= damage;
         if(_health <= 0) {
             //TODO: effects
+            MessageBus.UnSubscribe<TargetDestroyed>(this);
             Destroy(gameObject);
             return true;
         }
@@ -160,13 +161,12 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         }
         else
         {
-            if (!_currentTarget.IsPrimaryTarget)
+            if (_currentTarget != null && !_currentTarget.IsPrimaryTarget)
             {
-                var player = GameController.Player.GetRandom();
-                if (player != null && IsTargetReachable(player))
+                if (ShouldTargetPrimary)
                 {
-                    _currentTarget = null;
-                    _nextTargetTime = 0.1f;
+                    _currentTarget = GameController.GetTarget(true, IsTargetReachable);
+                    if (_currentTarget != null) SetTarget(_currentTarget);
                 }
             }
         }
@@ -179,7 +179,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         return path.status == NavMeshPathStatus.PathComplete;
     }
 
-    private bool ShouldTargetPlayer
+    private bool ShouldTargetPrimary
     {
         get
         {
