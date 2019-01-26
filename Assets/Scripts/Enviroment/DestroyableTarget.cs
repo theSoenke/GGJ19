@@ -17,7 +17,9 @@ public class DestroyableTarget : Target, ITakeDamage
         if(Health <= 0)
         {
             result = true;
-            Destroy(gameObject);
+            IsAvailable = false;
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
             MessageBus.Push(new TargetDestroyed(this));
         }
 
