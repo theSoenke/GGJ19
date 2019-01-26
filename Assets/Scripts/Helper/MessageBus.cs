@@ -37,13 +37,11 @@ public static class MessageBus
         foreach (var e in _entries)
         {
             if(e.Target == target && e.TType == type)            
-               l.Add(e);
-            
+               l.Add(e);            
         }
 
         foreach (var ll in l)
         {
-            Debug.Log("Remove " + ll.TType.Name);
             _entries.Remove(ll);
         }
     }
