@@ -5936,6 +5936,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0cafd5a62ea54d3d8fbcc3bb3ff08dc, type: 3}
+--- !u!4 &1762376766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850643637714335202, guid: 983ede6a32add694d806f351d7628c98,
+    type: 3}
+  m_PrefabInstance: {fileID: 6943021166707642464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1778914126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7239,8 +7245,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1806246123, guid: 983ede6a32add694d806f351d7628c98, type: 3}
       propertyPath: bulletSpeed
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1806246123, guid: 983ede6a32add694d806f351d7628c98, type: 3}
+      propertyPath: GunMuzzle
+      value: 
+      objectReference: {fileID: 1762376766}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 983ede6a32add694d806f351d7628c98, type: 3}
 --- !u!1001 &7644884990471473282

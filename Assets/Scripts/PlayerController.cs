@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public float bulletSpeed = 1.0f;
 
+    public Transform GunMuzzle;
+
     
     private const float SMALL_FLOAT = 0.0001f;
 
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bulletGameObject = Instantiate(bullet, transform.position, transform.rotation);
+        GameObject bulletGameObject = Instantiate(bullet, GunMuzzle.position, transform.rotation);
         bulletGameObject.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
     }
 

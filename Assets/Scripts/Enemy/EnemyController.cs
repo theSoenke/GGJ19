@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, ITakeDamage
 {
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private Target _currentTarget;
-    
+
     [SerializeField]
     private float _distanceToTarget = 0.75f;
+
+    [SerializeField]
+    private float _health = 42.0f;
 
     private float _coolDownTime;
     private float _nextTargetTime;
@@ -37,7 +40,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -77,6 +80,22 @@ public class EnemyController : MonoBehaviour
         }
         UpdateAnimator();
         UpdateTarget();
+    }
+
+    public DamageType GetDamageType()
+    {
+        return DamageType.Person;
+    }
+
+    public bool TakeDamage(float damage)
+    {
+        _health -= damage;
+        if(_health <= 0) {
+            //TODO: effects
+            Destroy(gameObject);
+            return true;
+        }
+        return false;
     }
 
     public void SetTarget(Target target, bool isPlayerTarget)
@@ -120,7 +139,7 @@ public class EnemyController : MonoBehaviour
     {
         _coolDownTime -= Time.deltaTime;
 
-        if(_currentTarget != null)
+        if (_currentTarget != null)
         {
             Debug.DrawLine(transform.position, _currentTarget.TargetPosition.position, Color.red);
 
@@ -149,7 +168,7 @@ public class EnemyController : MonoBehaviour
         {
             takeDamage.TakeDamage(ObjectDamage);
         }
-        else if(takeDamage.GetDamageType() == DamageType.Person)
+        else if (takeDamage.GetDamageType() == DamageType.Person)
         {
             takeDamage.TakeDamage(PlayerDamage);
         }
@@ -158,7 +177,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnTargetDestroyed(TargetDestroyed msg)
     {
-        if(msg.Target == _currentTarget)
+        if (msg.Target == _currentTarget)
         {
             _currentTarget = null;
             _nextTargetTime = 0.1f;
