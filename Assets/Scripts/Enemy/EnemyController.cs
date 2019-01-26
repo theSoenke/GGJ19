@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     private NavMeshAgent _navMeshAgent;
+    private Animator _animator;
     private Target _currentTarget;
 
     [SerializeField]
@@ -17,11 +18,13 @@ public class EnemyController : MonoBehaviour
     public float ObjectDamage = 20f;
     public float PlayerDamage = 10f;
     public float DamageCooldown = 2f;
+    public float AnimationWalkSpeedFactor = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -48,7 +51,7 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
-
+        UpdateAnimator();
         UpdateTarget();
     }
 
@@ -56,6 +59,14 @@ public class EnemyController : MonoBehaviour
     {
         _currentTarget = target;
         _navMeshAgent.SetDestination(target.TargetPosition.position);
+    }
+
+
+    private void UpdateAnimator()
+    {
+
+        var animationWalkSpeed = _navMeshAgent.velocity.magnitude * AnimationWalkSpeedFactor;
+        _animator.SetFloat("WalkSpeed", animationWalkSpeed);
     }
 
     private void UpdateTarget()
