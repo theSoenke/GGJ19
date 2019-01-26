@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Vector3 prevInputVector = new Vector3();
     public GameObject bullet;
+    public Transform BulletParent;
     public float bulletSpeed = 1.0f;
 
     public Transform GunMuzzle;

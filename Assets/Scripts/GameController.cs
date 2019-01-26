@@ -13,9 +13,6 @@ public class GameController : MonoBehaviour
     private int _targetValues;
     private const int MaxTargetFindingTries = 100;
 
-    public Target[] Walls;
-    public Target[] Player;
-
     public Image believerBible;
     public TextMeshProUGUI nextRoundMessage;
 
@@ -27,6 +24,8 @@ public class GameController : MonoBehaviour
     private WaveController waveController;
 
     private bool _isWaveActive;
+    private int _enemyKilled;
+    private float _countdown;
 
     public void AddEnenemy(EnemyController enemy)
     {
@@ -37,12 +36,33 @@ public class GameController : MonoBehaviour
     public void RemoveEnemy(EnemyController enemy)
     {
         Enemies.Remove(enemy);
+        if(waveController.AllEnemiesSpawned && Enemies.Count == 0)
+        {
+            EndWave();
+        }
+
+        //_enemyKilled++;
+        //Debug.Log("Enemy killed. Dead: " + _enemyKilled + " / " + waveController.CurrentEnemyCount);
+
+        //if (_enemyKilled >= waveController.CurrentEnemyCount)
+        //{
+        //    EndWave();
+        //}
     }
 
     public void StartWave()
     {
         waveController.StartWave();
+        _enemyKilled = 0;
         _isWaveActive = true;
+    }
+
+    public void EndWave()
+    {
+        waveController.EndWave();
+        _isWaveActive = false;
+        _countdown = roundCountdown;
+        nextRoundMessage.gameObject.SetActive(true);
     }
 
     public Target GetTarget(Vector3 position, bool shouldBePrimary, Func<Target, bool> isReachable)
@@ -116,24 +136,16 @@ public class GameController : MonoBehaviour
         _targets = GameObject.FindObjectsOfType<Target>().Select(t => new TargetConfig(t)).OrderBy(t => t.Propability).ToArray();
        
         waveController = GetComponent<WaveController>();
-        Walls = GameObject.FindGameObjectsWithTag("Target").Select(t => t.GetComponent<Target>()).ToArray();
-        Player = GameObject.FindGameObjectsWithTag("Player").Select(t => t.GetComponent<Target>()).ToArray();
-
-        MessageBus.Subscribe<TargetDestroyedMessage>(this, OnTargetDestroyed);
+        
         MessageBus.Subscribe<EnemyDeadMessage>(this, OnEnemyDead);
+
+        _countdown = roundCountdown;
     }
 
     void Update()
     {
         UpdateBelieverStatus();
         UpdateRoundTimer();
-    }
-
-    private void OnTargetDestroyed(TargetDestroyedMessage msg)
-    {
-        var walls = Walls.ToList();
-        walls.Remove(msg.Target);
-        Walls = walls.ToArray();
     }
 
     private void OnEnemyDead(EnemyDeadMessage msg)
@@ -156,10 +168,10 @@ public class GameController : MonoBehaviour
     {
         if (!_isWaveActive)
         {
-            if (roundCountdown > 0)
+            if (_countdown > 0)
             {
-                nextRoundMessage.text = "Incoming in " + roundCountdown.ToString("0");
-                roundCountdown -= Time.deltaTime;
+                nextRoundMessage.text = "Incoming in " + _countdown.ToString("0");
+                _countdown -= Time.deltaTime;
             }
             else
             {

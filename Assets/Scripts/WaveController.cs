@@ -21,6 +21,8 @@ public class WaveController : MonoBehaviour
 
     public float enemyScale = 0.02f;
     public WaveSetting[] Waves;
+    public int CurrentEnemyCount;
+    public bool AllEnemiesSpawned;
 
     void Start()
     {
@@ -33,6 +35,11 @@ public class WaveController : MonoBehaviour
     {
         if (_started) return;
 
+        if(_currentWave >= Waves.Length)
+        {
+            return;
+        }
+
         _currentWaveSetting = Waves[_currentWave];
         _currentWaveSetting.Init();
 
@@ -40,6 +47,8 @@ public class WaveController : MonoBehaviour
         _spawnedCount = 0;
         _spawnCount = _currentWaveSetting.SpawnCount;
         _spawnEntityCount = 0;
+        CurrentEnemyCount = _currentWaveSetting.MaxEnemies;
+        AllEnemiesSpawned = false;
         _timeToIncreaseSpawnCount = _currentWaveSetting.SpawnCountIncreaseTimeInSeconds > 0 ? _currentWaveSetting.SpawnCountIncreaseTimeInSeconds : (float?)null;
 
         _started = true;           
@@ -60,6 +69,7 @@ public class WaveController : MonoBehaviour
             if (_spawnedCount > _currentWaveSetting.MaxEnemies)
             {
                 _started = false;
+                AllEnemiesSpawned = true;
             }
         }
     }
