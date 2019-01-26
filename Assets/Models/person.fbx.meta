@@ -60,6 +60,8 @@ ModelImporter:
     400052: Bone.017_end
     400054: //RootNode
     2100000: Blu
+    2100002: Body
+    2100004: Skin
     4300000: Blu
     7400000: Armature|ArmatureAction
     7400002: ArmatureAction
