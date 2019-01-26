@@ -61,6 +61,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
+  Priority: 75
+  IsPrimaryTarget: 0
+  CanTargetMove: 0
+  CheckReachable: 0
+  IsAvailable: 1
   State: 0
   Health: 100
   RepairTime: 1
