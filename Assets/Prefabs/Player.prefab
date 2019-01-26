@@ -153,6 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 1806246127}
+  Priority: 100
+  IsPrimaryTarget: 1
+  CanTargetMove: 1
+  CheckReachable: 1
+  IsAvailable: 1
 --- !u!1 &392742496936952336
 GameObject:
   m_ObjectHideFlags: 0
