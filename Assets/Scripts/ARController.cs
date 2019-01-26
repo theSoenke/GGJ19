@@ -56,7 +56,7 @@ public class ARController : MonoBehaviour
     private bool m_IsQuitting = false;
     private bool _levelSpawned = false;
 
-    void Start()
+    void Awake()
     {
         waveController.enabled = false;
     }
