@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed = 1.0f;
     public float animationWalkSpeedFactor = 1.0f;
 
+    private Vector3 inputVector;
+
     private Rigidbody rigidbodyComponent;
     private Animator animator;
     private Vector3 prevInputVector = new Vector3();
@@ -27,14 +29,24 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        inputVector = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        if (inputVector.sqrMagnitude >= 1.0f)
+        {
+            inputVector = inputVector.normalized;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
 
-        UpdateAnimator();
-        UpdatePosition();
+        UpdateAnimator();        
         UpdateRotation();
+    }
+
+    void FixedUpdate()
+    {
+        UpdatePosition();
     }
 
     private void UpdateAnimator()
@@ -58,12 +70,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void UpdatePosition()
-    {
-        var inputVector = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        if (inputVector.sqrMagnitude >= 1.0f)
-        {
-            inputVector = inputVector.normalized;
-        }
+    {       
         var speedVector = inputVector * movementSpeed;
         rigidbodyComponent.velocity = speedVector;
     }
