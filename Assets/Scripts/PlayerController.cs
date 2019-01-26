@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bulletGameObject = Instantiate(bullet, transform.position, Quaternion.identity);
+        GameObject bulletGameObject = Instantiate(bullet, transform.position, transform.rotation);
         bulletGameObject.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
     }
 
