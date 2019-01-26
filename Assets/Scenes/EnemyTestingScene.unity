@@ -234,14 +234,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1806246123, guid: 983ede6a32add694d806f351d7628c98, type: 3}
-      propertyPath: bulletSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1806246122, guid: 983ede6a32add694d806f351d7628c98, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 983ede6a32add694d806f351d7628c98, type: 3}
 --- !u!1 &632244133
@@ -745,6 +737,11 @@ PrefabInstance:
       propertyPath: nextRoundMessage
       value: 
       objectReference: {fileID: 1065258799}
+    - target: {fileID: 7547379891805673368, guid: 63b12afb39201b74784ed29dfba5d7e5,
+        type: 3}
+      propertyPath: roundCountdown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7547379891805673369, guid: 63b12afb39201b74784ed29dfba5d7e5,
         type: 3}
       propertyPath: m_LocalPosition.x
