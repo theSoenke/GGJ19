@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour
     {
         waveController = GetComponent<WaveController>();
         Walls = GameObject.FindGameObjectsWithTag("Target").Select(t => t.GetComponent<Target>()).ToArray();
+        Player = GameObject.FindGameObjectsWithTag("Player").Select(t => t.GetComponent<Target>()).ToArray();
 
         MessageBus.Subscribe<TargetDestroyed>(OnTargetDestroyed);
     }
