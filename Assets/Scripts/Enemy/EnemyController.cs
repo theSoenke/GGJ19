@@ -9,17 +9,19 @@ public class EnemyController : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private Target _currentTarget;
-
+    
     [SerializeField]
     private float _distanceToTarget = 0.75f;
 
     private float _coolDownTime;
     private float _nextTargetTime;
+    private bool _isTargetPlayer;
 
     public float ObjectDamage = 20f;
     public float PlayerDamage = 10f;
     public float DamageCooldown = 2f;
     public float AnimationWalkSpeedFactor = 1.0f;
+    public float TargetPlayerPriority = 0.4f;
 
     [HideInInspector]
     public GameController GameController;
@@ -46,8 +48,9 @@ public class EnemyController : MonoBehaviour
             _nextTargetTime -= Time.deltaTime;
             if (_nextTargetTime <= 0)
             {
-                var target = GetNextTarget();
-                SetTarget(target);
+                var isPlayerTarget = false;
+                var target = GetNextTarget(out isPlayerTarget);
+                SetTarget(target, isPlayerTarget);
             }
         }
 
@@ -76,21 +79,35 @@ public class EnemyController : MonoBehaviour
         UpdateTarget();
     }
 
-    public void SetTarget(Target target)
+    public void SetTarget(Target target, bool isPlayerTarget)
     {
         if (target == null || target.TargetPosition == null) return;
 
+        _isTargetPlayer = isPlayerTarget;
         _currentTarget = target;
         _navMeshAgent.SetDestination(target.TargetPosition.position);
     }
 
-    private Target GetNextTarget()
+    private Target GetNextTarget(out bool isTargetPlayer)
     {
-        if (GameController.Walls.Length <= 0) return null;
+        if (ShouldTargetPlayer)
+        {
+            if (GameController.Player.Length > 0)
+            {
+                var player = GameController.Player.GetRandom();
+                if (player != null)
+                {
+                    if (IsTargetReachable(player))
+                    {
+                        isTargetPlayer = true;
+                        return player;
+                    }
+                }
+            }
+        }
 
-        var targetIndex = Random.Range(0, GameController.Walls.Length);
-        var target = GameController.Walls[targetIndex];
-        return target;
+        isTargetPlayer = false;
+        return GameController.Walls.GetRandom();
     }
 
     private void UpdateAnimator()
@@ -141,6 +158,33 @@ public class EnemyController : MonoBehaviour
         {
             _currentTarget = null;
             _nextTargetTime = 0.1f;
+        }
+        else
+        {
+            if (!_isTargetPlayer && ShouldTargetPlayer && ShouldTargetPlayer)
+            {
+                var player = GameController.Player.GetRandom();
+                if (player != null && IsTargetReachable(player))
+                {
+                    _currentTarget = null;
+                    _nextTargetTime = 0.1f;
+                }
+            }
+        }
+    }
+
+    private bool IsTargetReachable(Target target)
+    {
+        var path = new NavMeshPath();
+        _navMeshAgent.CalculatePath(target.TargetPosition.position, path);
+        return path.status == NavMeshPathStatus.PathComplete;
+    }
+
+    private bool ShouldTargetPlayer
+    {
+        get
+        {
+            return Random.Range(0f, 1f) <= TargetPlayerPriority;
         }
     }
 }
