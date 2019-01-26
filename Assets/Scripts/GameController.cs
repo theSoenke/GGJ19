@@ -13,6 +13,13 @@ public class GameController : MonoBehaviour
     private int _targetValues;
     private const int MaxTargetFindingTries = 100;
 
+
+    public GameObject partyTable;
+    public TextMeshProUGUI partyMessage;
+    public Target[] Walls;
+    public Target[] Player;
+    public float timeBetweenParties = 10f;
+
     public Image believerBible;
     public TextMeshProUGUI nextRoundMessage;
 
@@ -26,6 +33,8 @@ public class GameController : MonoBehaviour
     private bool _isWaveActive;
     private int _enemyKilled;
     private float _countdown;
+    private float _timeTilParty = 10f;
+
 
     public void AddEnenemy(EnemyController enemy)
     {
@@ -146,6 +155,21 @@ public class GameController : MonoBehaviour
     {
         UpdateBelieverStatus();
         UpdateRoundTimer();
+
+        _timeTilParty -= Time.deltaTime;
+
+        if(_timeTilParty <= 0)
+        {
+            partyMessage.enabled = true;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                partyMessage.enabled = false;
+                var partyTableGo = Instantiate(partyTable);
+                float partyDuration = 10f;
+                _timeTilParty = timeBetweenParties + partyDuration;
+                Destroy(partyTableGo, partyDuration);
+            }
+        }
     }
 
     private void OnEnemyDead(EnemyDeadMessage msg)
