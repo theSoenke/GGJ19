@@ -6,7 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(GameController))]
 public class WaveController : MonoBehaviour
 {
-    private Transform[] _spawns;
+    [HideInInspector]
+    public Transform[] spawns;
     private Target[] _targets;
     private GameController _gameController;
 
@@ -21,17 +22,24 @@ public class WaveController : MonoBehaviour
 
     public float enemyScale = 0.02f;
     public WaveSetting[] Waves;
+    public int CurrentEnemyCount;
+    public bool AllEnemiesSpawned;
 
     void Start()
     {
         _gameController = GetComponent<GameController>();
-        _spawns = GameObject.FindGameObjectsWithTag("EnemySpawn").Select(g => g.transform).ToArray();
+        spawns = GameObject.FindGameObjectsWithTag("EnemySpawn").Select(g => g.transform).ToArray();
         _targets = GameObject.FindGameObjectsWithTag("Target").Select(t => t.GetComponent<Target>()).ToArray();
     }
 
     public void StartWave()
     {
         if (_started) return;
+
+        if(_currentWave >= Waves.Length)
+        {
+            return;
+        }
 
         _currentWaveSetting = Waves[_currentWave];
         _currentWaveSetting.Init();
@@ -40,6 +48,8 @@ public class WaveController : MonoBehaviour
         _spawnedCount = 0;
         _spawnCount = _currentWaveSetting.SpawnCount;
         _spawnEntityCount = 0;
+        CurrentEnemyCount = _currentWaveSetting.MaxEnemies;
+        AllEnemiesSpawned = false;
         _timeToIncreaseSpawnCount = _currentWaveSetting.SpawnCountIncreaseTimeInSeconds > 0 ? _currentWaveSetting.SpawnCountIncreaseTimeInSeconds : (float?)null;
 
         _started = true;           
@@ -60,6 +70,7 @@ public class WaveController : MonoBehaviour
             if (_spawnedCount > _currentWaveSetting.MaxEnemies)
             {
                 _started = false;
+                AllEnemiesSpawned = true;
             }
         }
     }
@@ -83,8 +94,8 @@ public class WaveController : MonoBehaviour
         var prefabs = _currentWaveSetting.GetEnemiesPrefabs(_spawnCount);
         foreach (var p in prefabs)
         {
-            var spawnIndex = UnityEngine.Random.Range(0, _spawns.Length);
-            var spawn = _spawns[spawnIndex];
+            var spawnIndex = UnityEngine.Random.Range(0, spawns.Length);
+            var spawn = spawns[spawnIndex];
             
             var go = Instantiate(p, spawn.position, spawn.rotation);
             if(Application.platform == RuntimePlatform.Android)
@@ -136,7 +147,7 @@ public class WaveSetting
         for (var i = 0; i < count; i++)
         {
             var number = UnityEngine.Random.Range(0, _propabilities);
-            var prefab = Enemies.FirstOrDefault(e => e.SpawnProbability <= number);
+            var prefab = Enemies.FirstOrDefault(e => number <= e.SpawnProbability);
             if (prefab != null)
             {
                 result.Add(prefab.Prefab);

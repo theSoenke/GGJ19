@@ -11,7 +11,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private TargetConfig[] _targets;
     private int _targetValues;
-    private const int MaxTargetFindingTries = 100;
+    private const int maxTargetFindingTries = 100;
+
 
     public GameObject partyTable;
     public TextMeshProUGUI partyMessage;
@@ -30,23 +31,48 @@ public class GameController : MonoBehaviour
     private WaveController waveController;
 
     private bool _isWaveActive;
+    private int _enemyKilled;
+    private float _countdown;
     private float _timeTilParty = 10f;
+
 
     public void AddEnenemy(EnemyController enemy)
     {
         enemy.gameController = this;
         Enemies.Add(enemy);
+        MessageBus.Subscribe<PartyMessage>(enemy, OnParty);
     }
 
     public void RemoveEnemy(EnemyController enemy)
     {
         Enemies.Remove(enemy);
+        if(waveController.AllEnemiesSpawned && Enemies.Count == 0)
+        {
+            EndWave();
+        }
+
+        //_enemyKilled++;
+        //Debug.Log("Enemy killed. Dead: " + _enemyKilled + " / " + waveController.CurrentEnemyCount);
+
+        //if (_enemyKilled >= waveController.CurrentEnemyCount)
+        //{
+        //    EndWave();
+        //}
     }
 
     public void StartWave()
     {
         waveController.StartWave();
+        _enemyKilled = 0;
         _isWaveActive = true;
+    }
+
+    public void EndWave()
+    {
+        waveController.EndWave();
+        _isWaveActive = false;
+        _countdown = roundCountdown;
+        nextRoundMessage.gameObject.SetActive(true);
     }
 
     public Target GetTarget(Vector3 position, bool shouldBePrimary, Func<Target, bool> isReachable)
@@ -88,7 +114,7 @@ public class GameController : MonoBehaviour
         }
 
         var tries = 0;
-        while (result == null && tries < MaxTargetFindingTries)
+        while (result == null && tries < maxTargetFindingTries)
         {
             var randomValue = UnityEngine.Random.Range(0, p + 1);
             
@@ -117,14 +143,13 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        _targets = GameObject.FindObjectsOfType<Target>().Select(t => new TargetConfig(t)).OrderBy(t => t.Propability).ToArray();
+        _targets = FindObjectsOfType<Target>().Select(t => new TargetConfig(t)).OrderBy(t => t.Propability).ToArray();
        
         waveController = GetComponent<WaveController>();
-        Walls = GameObject.FindGameObjectsWithTag("Target").Select(t => t.GetComponent<Target>()).ToArray();
-        Player = GameObject.FindGameObjectsWithTag("Player").Select(t => t.GetComponent<Target>()).ToArray();
-
-        MessageBus.Subscribe<TargetDestroyedMessage>(this, OnTargetDestroyed);
+        
         MessageBus.Subscribe<EnemyDeadMessage>(this, OnEnemyDead);
+
+        _countdown = roundCountdown;
     }
 
     void Update()
@@ -139,12 +164,23 @@ public class GameController : MonoBehaviour
             partyMessage.enabled = true;
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                partyMessage.enabled = false;
-                var partyTableGo = Instantiate(partyTable);
-                float partyDuration = 10f;
-                _timeTilParty = timeBetweenParties + partyDuration;
-                Destroy(partyTableGo, partyDuration);
+                Party();
             }
+        }
+    }
+
+    private void Party()
+    {
+        partyMessage.enabled = false;
+        var partyTableGo = Instantiate(partyTable);
+        float partyDuration = 10f;
+        _timeTilParty = timeBetweenParties + partyDuration;
+        Destroy(partyTableGo, partyDuration);
+
+
+        foreach(var enemy in Enemies)
+        {
+            MessageBus.Push(new PartyMessage(enemy));
         }
     }
 
@@ -157,9 +193,18 @@ public class GameController : MonoBehaviour
 
     private void OnEnemyDead(EnemyDeadMessage msg)
     {
-        if (Enemies.Contains(msg.EnemyController))
+        if (Enemies.Contains(msg.enemyController))
         {
-            RemoveEnemy(msg.EnemyController);
+            RemoveEnemy(msg.enemyController);
+        }
+    }
+
+    private void OnParty(PartyMessage msg)
+    {
+        if (Enemies.Contains(msg.enemyController))
+        {
+            var target = waveController.spawns[UnityEngine.Random.Range(0, waveController.spawns.Length)];
+            msg.enemyController.SetDestionation(target.position, 10f);
         }
     }
 
@@ -175,10 +220,10 @@ public class GameController : MonoBehaviour
     {
         if (!_isWaveActive)
         {
-            if (roundCountdown > 0)
+            if (_countdown > 0)
             {
-                nextRoundMessage.text = "Incoming in " + roundCountdown.ToString("0");
-                roundCountdown -= Time.deltaTime;
+                nextRoundMessage.text = "Incoming in " + _countdown.ToString("0");
+                _countdown -= Time.deltaTime;
             }
             else
             {

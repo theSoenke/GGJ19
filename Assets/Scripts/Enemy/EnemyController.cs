@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private Target _currentTarget;
+    private float _partyTimeLeft = 0f;
 
     [SerializeField]
     private float _distanceToTarget = 0.75f;
@@ -28,19 +29,18 @@ public class EnemyController : MonoBehaviour, ITakeDamage
     [HideInInspector]
     public GameController gameController;
 
+    private bool _isDead;
+
     // Start is called before the first frame update
     void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
+        _isDead = false;
 
         MessageBus.Subscribe<TargetDestroyedMessage>(this, OnTargetDestroyed);
     }
 
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -88,9 +88,12 @@ public class EnemyController : MonoBehaviour, ITakeDamage
 
     public bool TakeDamage(float damage)
     {
+        if (_isDead) return true;
+
         _health -= damage;
         if(_health <= 0) {
             //TODO: effects
+            _isDead = true;
             MessageBus.Push(new EnemyDeadMessage(this));
             MessageBus.UnSubscribe<TargetDestroyedMessage>(this);
             Destroy(gameObject);
@@ -106,7 +109,14 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         _currentTarget = target;
         _navMeshAgent.SetDestination(target.TargetPosition.position);
     }
-   
+
+    public void SetDestionation(Vector3 position, float partyTime)
+    {
+        _partyTimeLeft = partyTime;
+        _navMeshAgent.SetDestination(position);
+    }
+
+
 
     private void UpdateAnimator()
     {
