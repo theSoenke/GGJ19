@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1240503496496866675}
   m_Layer: 0
   m_Name: Fence
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  State: 1
+  State: 0
   Health: 100
   RepairTime: 1
   RepairIcon: {fileID: 1240503497843995795}
