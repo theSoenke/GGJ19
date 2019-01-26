@@ -7,3 +7,13 @@
         Target = target;
     }
 }
+
+
+public class RepairEvent
+{
+    public bool IsRepairing;
+    public RepairEvent(bool isRepairing)
+    {
+        IsRepairing = isRepairing;
+    }
+}
