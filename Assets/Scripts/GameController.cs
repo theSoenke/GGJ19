@@ -108,7 +108,7 @@ public class GameController : MonoBehaviour
         Walls = GameObject.FindGameObjectsWithTag("Target").Select(t => t.GetComponent<Target>()).ToArray();
         Player = GameObject.FindGameObjectsWithTag("Player").Select(t => t.GetComponent<Target>()).ToArray();
 
-        MessageBus.Subscribe<TargetDestroyed>(OnTargetDestroyed);
+        MessageBus.Subscribe<TargetDestroyed>(this, OnTargetDestroyed);
     }
 
     void Update()

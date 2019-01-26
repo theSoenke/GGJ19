@@ -18,7 +18,7 @@ public class Fence : Target, ITakeDamage
     public void Start()
     {
         RepairIcon.OnIconClicked += Repair;
-        MessageBus.Subscribe<RepairEvent>(OnRepairEvent);
+        MessageBus.Subscribe<RepairEvent>(this, OnRepairEvent);
     }
 
     public bool TakeDamage(float value)
