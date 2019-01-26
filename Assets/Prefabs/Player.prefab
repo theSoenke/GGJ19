@@ -136,6 +136,7 @@ MonoBehaviour:
   movementSpeed: 5
   animationWalkSpeedFactor: 1
   bullet: {fileID: 6897896085637857227, guid: fccadf2f71a639f419c3d83c1b591486, type: 3}
+  BulletParent: {fileID: 0}
   bulletSpeed: 25
   GunMuzzle: {fileID: 808914621}
 --- !u!54 &1806246122
@@ -1174,6 +1175,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5850643637714335202}
     m_Modifications:
+    - target: {fileID: 100002, guid: 55beadec4b839534299c27a426abf654, type: 3}
+      propertyPath: m_Name
+      value: AK
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 55beadec4b839534299c27a426abf654, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00010622718
@@ -1217,10 +1222,6 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 55beadec4b839534299c27a426abf654, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -270.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 55beadec4b839534299c27a426abf654, type: 3}
-      propertyPath: m_Name
-      value: AK
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 55beadec4b839534299c27a426abf654, type: 3}
       propertyPath: m_Materials.Array.data[0]

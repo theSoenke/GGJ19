@@ -45,7 +45,15 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bulletGameObject = Instantiate(bullet, GunMuzzle.position, transform.rotation);
+        GameObject bulletGameObject;
+        if (BulletParent == null)
+        {
+            bulletGameObject = Instantiate(bullet, GunMuzzle.position, transform.rotation);
+        }
+        else
+        {
+            bulletGameObject = Instantiate(bullet, GunMuzzle.position, transform.rotation, BulletParent);
+        }
         bulletGameObject.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
     }
 
