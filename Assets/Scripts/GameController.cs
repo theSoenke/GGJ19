@@ -126,7 +126,10 @@ public class GameController : MonoBehaviour
 
     private void UpdateBelieverStatus()
     {
-        believerBible.fillAmount = believer;
+        if(believerBible != null)
+        {
+            believerBible.fillAmount = believer;
+        }
     }
 
     private void UpdateRoundTimer()
