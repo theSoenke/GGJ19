@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
 
-        MessageBus.Subscribe<TargetDestroyed>(this, OnTargetDestroyed);
+        MessageBus.Subscribe<TargetDestroyedMessage>(this, OnTargetDestroyed);
     }
 
     void Start()
@@ -91,7 +91,8 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         _health -= damage;
         if(_health <= 0) {
             //TODO: effects
-            MessageBus.UnSubscribe<TargetDestroyed>(this);
+            MessageBus.Push(new EnemyDeadMessage(this));
+            MessageBus.UnSubscribe<TargetDestroyedMessage>(this);
             Destroy(gameObject);
             return true;
         }
@@ -153,7 +154,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         _coolDownTime = DamageCooldown;
     }
 
-    private void OnTargetDestroyed(TargetDestroyed msg)
+    private void OnTargetDestroyed(TargetDestroyedMessage msg)
     {
         if (msg.Target == _currentTarget)
         {

@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
     public float believer = 0f;
     [SerializeField]
     private float roundCountdown = 2;
-    private List<EnemyController> enemies = new List<EnemyController>();   
+    public List<EnemyController> Enemies = new List<EnemyController>();   
     private WaveController waveController;
 
     private bool _isWaveActive;
@@ -35,12 +35,12 @@ public class GameController : MonoBehaviour
     public void AddEnenemy(EnemyController enemy)
     {
         enemy.gameController = this;
-        enemies.Add(enemy);
+        Enemies.Add(enemy);
     }
 
     public void RemoveEnemy(EnemyController enemy)
     {
-        enemies.Remove(enemy);
+        Enemies.Remove(enemy);
     }
 
     public void StartWave()
@@ -118,20 +118,13 @@ public class GameController : MonoBehaviour
     void Start()
     {
         _targets = GameObject.FindObjectsOfType<Target>().Select(t => new TargetConfig(t)).OrderBy(t => t.Propability).ToArray();
-        //_targetValues = 0;
-        //foreach (var t in _targets)
-        //{
-        //    var oldValue = _targetValues;
-        //    _targetValues += t.Propability;
-        //    t.Propability += _targetValues;
-        //}
        
-
         waveController = GetComponent<WaveController>();
         Walls = GameObject.FindGameObjectsWithTag("Target").Select(t => t.GetComponent<Target>()).ToArray();
         Player = GameObject.FindGameObjectsWithTag("Player").Select(t => t.GetComponent<Target>()).ToArray();
 
-        MessageBus.Subscribe<TargetDestroyed>(this, OnTargetDestroyed);
+        MessageBus.Subscribe<TargetDestroyedMessage>(this, OnTargetDestroyed);
+        MessageBus.Subscribe<EnemyDeadMessage>(this, OnEnemyDead);
     }
 
     void Update()
@@ -155,11 +148,19 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void OnTargetDestroyed(TargetDestroyed msg)
+    private void OnTargetDestroyed(TargetDestroyedMessage msg)
     {
         var walls = Walls.ToList();
         walls.Remove(msg.Target);
         Walls = walls.ToArray();
+    }
+
+    private void OnEnemyDead(EnemyDeadMessage msg)
+    {
+        if (Enemies.Contains(msg.EnemyController))
+        {
+            RemoveEnemy(msg.EnemyController);
+        }
     }
 
     private void UpdateBelieverStatus()

@@ -20,7 +20,7 @@ public class DestroyableTarget : Target, ITakeDamage
             IsAvailable = false;
             gameObject.SetActive(false);
             //Destroy(gameObject);
-            MessageBus.Push(new TargetDestroyed(this));
+            MessageBus.Push(new TargetDestroyedMessage(this));
         }
 
         return result;
