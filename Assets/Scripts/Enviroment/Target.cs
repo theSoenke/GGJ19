@@ -8,6 +8,6 @@ public class Target : MonoBehaviour
 
     void Awake()
     {
-        if (TargetPosition == null) TargetPosition = transform;
+        if (TargetPosition == null) TargetPosition = transform;       
     }
 }

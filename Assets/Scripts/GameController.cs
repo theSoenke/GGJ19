@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(WaveController))]
 public class GameController : MonoBehaviour
 {
     public Text believerStatus;
@@ -10,6 +11,7 @@ public class GameController : MonoBehaviour
     private float believer = 0;
     private float roundCountdown = 10;
     private List<EnemyController> enemies = new List<EnemyController>();
+    private WaveController waveController;
 
     public void AddEnenemy(EnemyController enemy)
     {
@@ -19,6 +21,16 @@ public class GameController : MonoBehaviour
     public void RemoveEnemy(EnemyController enemy)
     {
         enemies.Remove(enemy);
+    }
+
+    public void StartWave()
+    {
+        waveController.StartWave();
+    }
+
+    void Start()
+    {
+        waveController = GetComponent<WaveController>();
     }
 
     void Update()
