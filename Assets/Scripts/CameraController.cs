@@ -4,20 +4,32 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-
+    public Transform player;
     public float MoveSpeed = 20f;
     public float XScale = 1f;
     public float YScale = 1f;
 
-    // Start is called before the first frame update
+    private Vector3 offset;
+
+
     void Start()
     {
-        
+        if(player != null)
+        {
+            offset = transform.position - player.transform.position;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + new Vector3(Input.GetAxis("Horizontal") * XScale, 0, Input.GetAxis("Vertical") * YScale) * MoveSpeed * Time.deltaTime;
+        if(player != null)
+        {
+            
+            transform.position = player.position + offset;
+        }
+        else
+        {
+            transform.position = transform.position + new Vector3(Input.GetAxis("Horizontal") * XScale, 0, Input.GetAxis("Vertical") * YScale) * MoveSpeed * Time.deltaTime;
+        }
     }
 }
