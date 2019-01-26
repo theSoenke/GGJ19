@@ -108,7 +108,7 @@ public class GameController : MonoBehaviour
         Walls = GameObject.FindGameObjectsWithTag("Target").Select(t => t.GetComponent<Target>()).ToArray();
         Player = GameObject.FindGameObjectsWithTag("Player").Select(t => t.GetComponent<Target>()).ToArray();
 
-        MessageBus.Subscribe<TargetDestroyed>(OnTargetDestroyed);
+        MessageBus.Subscribe<TargetDestroyed>(this, OnTargetDestroyed);
     }
 
     void Update()
@@ -126,7 +126,10 @@ public class GameController : MonoBehaviour
 
     private void UpdateBelieverStatus()
     {
-        believerBible.fillAmount = believer;
+        if(believerBible != null)
+        {
+            believerBible.fillAmount = believer;
+        }
     }
 
     private void UpdateRoundTimer()

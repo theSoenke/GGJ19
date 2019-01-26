@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
 
-        MessageBus.Subscribe<TargetDestroyed>(OnTargetDestroyed);
+        MessageBus.Subscribe<TargetDestroyed>(this, OnTargetDestroyed);
     }
 
     void Start()
@@ -90,6 +90,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         _health -= damage;
         if(_health <= 0) {
             //TODO: effects
+            MessageBus.UnSubscribe<TargetDestroyed>(this);
             Destroy(gameObject);
             return true;
         }
