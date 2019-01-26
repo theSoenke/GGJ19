@@ -18,7 +18,6 @@ public class EnemyController : MonoBehaviour, ITakeDamage
 
     private float _coolDownTime;
     private float _nextTargetTime;
-    private bool _isTargetPlayer;
 
     public float ObjectDamage = 20f;
     public float PlayerDamage = 10f;
@@ -51,9 +50,8 @@ public class EnemyController : MonoBehaviour, ITakeDamage
             _nextTargetTime -= Time.deltaTime;
             if (_nextTargetTime <= 0)
             {
-                var isPlayerTarget = false;
-                var target = GetNextTarget(out isPlayerTarget);
-                SetTarget(target, isPlayerTarget);
+                var target = GameController.GetTarget(false, IsTargetReachable);
+                SetTarget(target);
             }
         }
 
@@ -98,36 +96,14 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         return false;
     }
 
-    public void SetTarget(Target target, bool isPlayerTarget)
+    public void SetTarget(Target target)
     {
         if (target == null || target.TargetPosition == null) return;
-
-        _isTargetPlayer = isPlayerTarget;
+        
         _currentTarget = target;
         _navMeshAgent.SetDestination(target.TargetPosition.position);
     }
-
-    private Target GetNextTarget(out bool isTargetPlayer)
-    {
-        if (ShouldTargetPlayer)
-        {
-            if (GameController.Player.Length > 0)
-            {
-                var player = GameController.Player.GetRandom();
-                if (player != null)
-                {
-                    if (IsTargetReachable(player))
-                    {
-                        isTargetPlayer = true;
-                        return player;
-                    }
-                }
-            }
-        }
-
-        isTargetPlayer = false;
-        return GameController.Walls.GetRandom();
-    }
+   
 
     private void UpdateAnimator()
     {
@@ -143,7 +119,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         {
             Debug.DrawLine(transform.position, _currentTarget.TargetPosition.position, Color.red);
 
-            if (_isTargetPlayer)
+            if (_currentTarget.CanTargetMove)
             {
                 _navMeshAgent.SetDestination(_currentTarget.TargetPosition.position);
             }
@@ -184,7 +160,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         }
         else
         {
-            if (!_isTargetPlayer && ShouldTargetPlayer && ShouldTargetPlayer)
+            if (!_currentTarget.IsPrimaryTarget)
             {
                 var player = GameController.Player.GetRandom();
                 if (player != null && IsTargetReachable(player))
