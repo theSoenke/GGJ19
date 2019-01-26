@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform GunMuzzle;
 
-    
+
     private const float SMALL_FLOAT = 0.0001f;
 
     private void Start()

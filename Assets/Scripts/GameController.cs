@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     public float believer = 0f;
     [SerializeField]
     private float roundCountdown = 2;
-    private List<EnemyController> enemies = new List<EnemyController>();   
+    public List<EnemyController> Enemies = new List<EnemyController>();   
     private WaveController waveController;
 
     private bool _isWaveActive;
@@ -31,12 +31,12 @@ public class GameController : MonoBehaviour
     public void AddEnenemy(EnemyController enemy)
     {
         enemy.GameController = this;
-        enemies.Add(enemy);
+        Enemies.Add(enemy);
     }
 
     public void RemoveEnemy(EnemyController enemy)
     {
-        enemies.Remove(enemy);
+        Enemies.Remove(enemy);
     }
 
     public void StartWave()
