@@ -389,6 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd7e8bd350322442b3515762cfdc5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Walls: []
+  Player: []
   believerStatus: {fileID: 541525197}
   nextRoundTimer: {fileID: 734552456}
 --- !u!4 &628946753
@@ -798,5 +800,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6897896085637857227, guid: fccadf2f71a639f419c3d83c1b591486,
         type: 3}
+    - target: {fileID: 1806246123, guid: 983ede6a32add694d806f351d7628c98, type: 3}
+      propertyPath: bulletSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 983ede6a32add694d806f351d7628c98, type: 3}
