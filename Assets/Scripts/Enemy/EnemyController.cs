@@ -105,7 +105,8 @@ public class EnemyController : MonoBehaviour, ITakeDamage
     {
         _hitEffect.transform.rotation = Quaternion.LookRotation(direction);
         _hitEffect.Play();
-        HitAudio.Play();
+        if(HitAudio.isActiveAndEnabled)
+         HitAudio.Play();
     }
 
     public void SetTarget(Target target)

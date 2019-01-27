@@ -93,6 +93,8 @@ public class PlayerController : MonoBehaviour
     {       
         var speedVector = inputVector * movementSpeed;
         rigidbodyComponent.velocity = speedVector;
+        //var nextPos = transform.position + speedVector * Time.fixedDeltaTime;
+        //rigidbodyComponent.MovePosition(nextPos);
     }
 
     private bool CanShoot()
