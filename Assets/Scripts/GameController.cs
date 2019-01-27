@@ -47,7 +47,6 @@ public class GameController : MonoBehaviour
 
         if(_isParty)
         {
-            Debug.Log("Tell new Enemy to Party");
             enemy.OnParty(new PartyMessage(true));
         }
     }
@@ -173,7 +172,6 @@ public class GameController : MonoBehaviour
         if(_isParty && _timeTilParty <= timeBetweenParties)
         {
             _isParty = false;
-            Debug.Log("Stopped Party");
             MessageBus.Push(new PartyMessage(false));
         }
 
@@ -197,7 +195,6 @@ public class GameController : MonoBehaviour
         _timeTilParty = timeBetweenParties + partyDuration;
         Destroy(partyTableGo, partyDuration);
 
-        Debug.Log("Started Party");
         MessageBus.Push(new PartyMessage(true));
         _isParty = true;
     }
