@@ -30,10 +30,10 @@ public class EnemyDeadMessage
 
 public class PartyMessage
 {
-    public EnemyController enemyController;
+    public bool Start;
 
-    public PartyMessage(EnemyController controller)
+    public PartyMessage(bool start)
     {
-        enemyController = controller;
+        Start = start;
     }
 }

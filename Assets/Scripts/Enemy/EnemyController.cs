@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,7 +10,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private Target _currentTarget;
-    private float _partyTimeLeft = 0f;
+    private bool _isParty = false;
 
     [SerializeField]
     private float _distanceToTarget = 0.75f;
@@ -39,52 +40,29 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         _isDead = false;
 
         MessageBus.Subscribe<TargetDestroyedMessage>(this, OnTargetDestroyed);
+        MessageBus.Subscribe<PartyMessage>(this, OnParty);
     }
 
 
     void Update()
     {
-        if(_partyTimeLeft > 0)
+        _coolDownTime -= Time.deltaTime;
+
+        if (!_isParty)
         {
-            _partyTimeLeft -= Time.deltaTime;
-            if(_partyTimeLeft <= 0)
+            if (_currentTarget == null)
             {
-                _currentTarget = null;
+                _nextTargetTime -= Time.deltaTime;
+                if (_nextTargetTime <= 0)
+                {
+                    var target = gameController.GetTarget(transform.position, false, IsTargetReachable);
+
+                    SetTarget(target);
+                }
             }
         }
 
-        if (_currentTarget == null)
-        {
-            _nextTargetTime -= Time.deltaTime;
-            if (_nextTargetTime <= 0)
-            {
-                var target = gameController.GetTarget(transform.position, false, IsTargetReachable);
-
-                SetTarget(target);
-            }
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            //var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //RaycastHit hit;
-            //if(Physics.Raycast(ray, out hit, 1000))
-            //{
-            //    //_navMeshAgent.SetDestination(hit.point);
-            //    var target = hit.transform.gameObject.GetComponent<Target>();
-            //    var components = hit.transform.gameObject.GetComponents(typeof(MonoBehaviour));
-
-            //    foreach(var c in components)
-            //    {
-            //        Debug.Log("HittedComp: " + c.GetType());
-            //    }
-
-            //    if(target != null)
-            //    {
-            //        SetTarget(target);
-            //    }
-            //}
-        }
+      
         UpdateAnimator();
         UpdateTarget();
     }
@@ -104,6 +82,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
             _isDead = true;
             MessageBus.Push(new EnemyDeadMessage(this));
             MessageBus.UnSubscribe<TargetDestroyedMessage>(this);
+            MessageBus.UnSubscribe<PartyMessage>(this);
             Destroy(gameObject);
             return true;
         }
@@ -118,11 +97,11 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         _navMeshAgent.SetDestination(target.TargetPosition.position);
     }
 
-    public void SetDestionation(Vector3 position, float partyTime)
-    {
-        _partyTimeLeft = partyTime;
-        _navMeshAgent.SetDestination(position);
-    }
+    //public void SetDestionation(Vector3 position, float partyTime)
+    //{
+    //    _partyTimeLeft = partyTime;
+    //    _navMeshAgent.SetDestination(position);
+    //}
 
 
 
@@ -134,7 +113,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
 
     private void UpdateTarget()
     {
-        _coolDownTime -= Time.deltaTime;
+        if (_isParty) return;
 
         if (_currentTarget != null)
         {
@@ -189,6 +168,22 @@ public class EnemyController : MonoBehaviour, ITakeDamage
 
                     if (_currentTarget != null) SetTarget(_currentTarget);
                 }
+            }
+        }
+    }
+
+    public void OnParty(PartyMessage msg)
+    {
+        _isParty = msg.Start;
+        if (msg.Start)
+        {
+            var target = gameController.waveController.spawns.OrderBy(t => (t.transform.position - transform.position).sqrMagnitude).First();
+            _navMeshAgent.SetDestination(target.position);
+        }
+        else
+        {
+            if (_currentTarget != null) {
+                _navMeshAgent.SetDestination(_currentTarget.TargetPosition.position);
             }
         }
     }
