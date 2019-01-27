@@ -24,6 +24,9 @@ public class EnemyController : MonoBehaviour, ITakeDamage
     [SerializeField]
     private float _health = 42.0f;
 
+    [SerializeField]
+    private ParticleSystem _hitEffect;
+
     private float _coolDownTime;
     private float _nextTargetTime;
 
@@ -83,6 +86,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         if (_isDead) return true;
 
         _health -= damage;
+        
         if(_health <= 0) {
             //TODO: effects
             _isDead = true;
@@ -93,6 +97,12 @@ public class EnemyController : MonoBehaviour, ITakeDamage
             return true;
         }
         return false;
+    }
+
+    public void TriggerBlood(Vector3 direction)
+    {
+        _hitEffect.transform.rotation = Quaternion.LookRotation(direction);
+        _hitEffect.Play();
     }
 
     public void SetTarget(Target target)
