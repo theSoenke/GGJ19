@@ -9322,12 +9322,17 @@ PrefabInstance:
     - target: {fileID: 7547379891805673368, guid: 63b12afb39201b74784ed29dfba5d7e5,
         type: 3}
       propertyPath: messageDisplayTime
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7547379891805673368, guid: 63b12afb39201b74784ed29dfba5d7e5,
         type: 3}
       propertyPath: roundCountdown
-      value: 15
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547379891805673368, guid: 63b12afb39201b74784ed29dfba5d7e5,
+        type: 3}
+      propertyPath: timeBetweenParties
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7547379891805673369, guid: 63b12afb39201b74784ed29dfba5d7e5,
         type: 3}
