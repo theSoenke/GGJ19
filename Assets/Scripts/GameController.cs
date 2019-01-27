@@ -187,7 +187,7 @@ public class GameController : MonoBehaviour
             MessageBus.Push(new PartyMessage(false));
         }
 
-        if(_timeTilParty <= 0)
+        if(_timeTilParty <= 0 && _isWaveActive)
         {
             partyMessage.enabled = true;
             if (Input.GetKeyDown(KeyCode.Space))
@@ -266,6 +266,9 @@ public class GameController : MonoBehaviour
                 nextRoundMessage.gameObject.SetActive(false);
                 StartWave();
             }
+
+
+            partyMessage.enabled = false;
         }
         else
         {
