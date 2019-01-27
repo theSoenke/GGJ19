@@ -156,6 +156,8 @@ public class GameController : MonoBehaviour
         MessageBus.Subscribe<EnemyDeadMessage>(this, OnEnemyDead);
 
         _countdown = roundCountdown;
+
+        MessageBus.Publish(new GameStateMessage(GameStateMessage.GameState.GameStart));
     }
 
     void Update()
@@ -225,6 +227,7 @@ public class GameController : MonoBehaviour
 
     private void Gameover()
     {
+        MessageBus.Publish(new GameStateMessage(GameStateMessage.GameState.GameOver));
         SceneManager.LoadScene("Gameover");
     }
 

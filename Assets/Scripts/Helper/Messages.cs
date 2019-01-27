@@ -37,3 +37,21 @@ public class PartyMessage
         enemyController = controller;
     }
 }
+
+public class GameStateMessage
+{
+    public enum GameState
+    {
+        GameStart,
+        GameOver,
+        WaveStart,
+        WaveOver
+    }
+
+    public GameState State;
+
+    public GameStateMessage(GameState state)
+    {
+        State = state;
+    }
+}
