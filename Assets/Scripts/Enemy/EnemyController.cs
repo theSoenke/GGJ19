@@ -36,6 +36,8 @@ public class EnemyController : MonoBehaviour, ITakeDamage
     public float AnimationWalkSpeedFactor = 1.0f;
     public float TargetPlayerPriority = 0.4f;
 
+    public AudioSource HitAudio;
+
     [HideInInspector]
     public GameController gameController;
 
@@ -103,6 +105,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
     {
         _hitEffect.transform.rotation = Quaternion.LookRotation(direction);
         _hitEffect.Play();
+        HitAudio.Play();
     }
 
     public void SetTarget(Target target)
