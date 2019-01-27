@@ -158,6 +158,8 @@ public class GameController : MonoBehaviour
         MessageBus.Subscribe<EnemyDeadMessage>(this, OnEnemyDead);
 
         _countdown = roundCountdown;
+
+        MessageBus.Push(new GameStateMessage(GameStateMessage.GameState.GameStart));
     }
 
     void Update()
@@ -192,7 +194,6 @@ public class GameController : MonoBehaviour
         float partyDuration = 10f;
         _timeTilParty = timeBetweenParties + partyDuration;
         Destroy(partyTableGo, partyDuration);
-        
         MessageBus.Push(new PartyMessage(true));
         _isParty = true;
     }
@@ -223,6 +224,7 @@ public class GameController : MonoBehaviour
 
     private void Gameover()
     {
+        MessageBus.Push(new GameStateMessage(GameStateMessage.GameState.GameOver));
         SceneManager.LoadScene("Gameover");
     }
 

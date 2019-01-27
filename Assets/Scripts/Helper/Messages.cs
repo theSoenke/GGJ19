@@ -37,3 +37,21 @@ public class PartyMessage
         Start = start;
     }
 }
+
+public class GameStateMessage
+{
+    public enum GameState
+    {
+        GameStart,
+        GameOver,
+        WaveStart,
+        WaveOver
+    }
+
+    public GameState State;
+
+    public GameStateMessage(GameState state)
+    {
+        State = state;
+    }
+}
