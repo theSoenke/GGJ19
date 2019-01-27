@@ -52,9 +52,13 @@ MonoBehaviour:
   timeBetweenParties: 10
   believerBible: {fileID: 0}
   nextRoundMessage: {fileID: 0}
+  messages: []
+  roundInitMessage: {fileID: 0}
   believer: 0
   roundCountdown: 10
+  messageDisplayTime: 5
   Enemies: []
+  waveController: {fileID: 0}
 --- !u!114 &7547379891805673319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,12 +71,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2903b30b611410e449dc06e39275ee69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawns: []
   enemyScale: 0.02
   Waves:
-  - MaxEnemies: 10
-    SpawnTimeInSeconds: 3
-    SpawnCount: 1
-    SpawnCountIncreaseTimeInSeconds: 0
+  - MaxEnemies: 50
+    SpawnTimeInSeconds: 1
+    SpawnCount: 10
+    SpawnCountIncreaseTimeInSeconds: 5
     Enemies:
     - Prefab: {fileID: 4393099573896319882, guid: f8c073f26412aee4f9fae05f74ef955c,
         type: 3}
@@ -110,3 +115,4 @@ MonoBehaviour:
       SpawnProbability: 75
   CurrentEnemyCount: 0
   AllEnemiesSpawned: 0
+  messages: []

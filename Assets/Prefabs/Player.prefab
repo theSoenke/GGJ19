@@ -140,6 +140,7 @@ MonoBehaviour:
   BulletParent: {fileID: 0}
   ShotAudio: {fileID: 7730558351760263125}
   bulletSpeed: 25
+  ShotSoundPitch: 0.1
   GunMuzzle: {fileID: 808914621}
 --- !u!54 &1806246122
 Rigidbody:
@@ -190,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 1806246127}
   Priority: 100
+  Level: 10
   IsPrimaryTarget: 1
   CanTargetMove: 1
   CheckReachable: 1

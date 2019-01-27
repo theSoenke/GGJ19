@@ -222,7 +222,8 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         else
         {
             if (_currentTarget != null) {
-                _navMeshAgent.SetDestination(_currentTarget.TargetPosition.position);
+                _currentTarget = null;
+                _nextTargetTime = 0.1f;
             }
         }
     }
