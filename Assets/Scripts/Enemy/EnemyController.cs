@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private Target _currentTarget;
+    private int _currentTargetLevel;
     private bool _isParty = false;
 
     [SerializeField]
@@ -31,6 +32,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
     public GameController gameController;
 
     private bool _isDead;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -55,8 +57,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
                 _nextTargetTime -= Time.deltaTime;
                 if (_nextTargetTime <= 0)
                 {
-                    var target = gameController.GetTarget(transform.position, false, IsTargetReachable);
-
+                    var target = gameController.GetTarget(transform.position, false, _currentTargetLevel, IsTargetReachable);
                     SetTarget(target);
                 }
             }
@@ -94,6 +95,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         if (target == null || target.TargetPosition == null) return;
         
         _currentTarget = target;
+        if(!_currentTarget.IsPrimaryTarget) _currentTargetLevel = target.Level;
         _navMeshAgent.SetDestination(target.TargetPosition.position);
     }
 
@@ -164,9 +166,11 @@ public class EnemyController : MonoBehaviour, ITakeDamage
             {
                 if (ShouldTargetPrimary)
                 {
-                    _currentTarget = gameController.GetTarget(transform.position, true, IsTargetReachable);
-
-                    if (_currentTarget != null) SetTarget(_currentTarget);
+                    _currentTarget = gameController.GetTarget(transform.position, true, 0, IsTargetReachable);
+                    if (_currentTarget != null)
+                    {
+                        SetTarget(_currentTarget);
+                    }
                 }
             }
         }

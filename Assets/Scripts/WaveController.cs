@@ -53,13 +53,15 @@ public class WaveController : MonoBehaviour
         AllEnemiesSpawned = false;
         _timeToIncreaseSpawnCount = _currentWaveSetting.SpawnCountIncreaseTimeInSeconds > 0 ? _currentWaveSetting.SpawnCountIncreaseTimeInSeconds : (float?)null;
 
-        _started = true;           
+        _started = true;     
+        MessageBus.Push(new GameStateMessage(GameStateMessage.GameState.WaveStart));      
     }
 
     public void EndWave()
     {
         _currentWave++;
         _started = false;
+        MessageBus.Push(new GameStateMessage(GameStateMessage.GameState.WaveOver));
     }
 
     void Update()
