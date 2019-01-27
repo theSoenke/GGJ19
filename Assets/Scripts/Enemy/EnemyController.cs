@@ -126,15 +126,23 @@ public class EnemyController : MonoBehaviour, ITakeDamage
                 _navMeshAgent.SetDestination(_currentTarget.TargetPosition.position);
             }
 
-            var takeDamage = _currentTarget as ITakeDamage;
-            if (takeDamage != null)
+            var distance = (_currentTarget.TargetPosition.position - transform.position).sqrMagnitude;
+            if (distance <= _distanceToTarget * _distanceToTarget)
             {
-                var distance = (_currentTarget.TargetPosition.position - transform.position).sqrMagnitude;
-                if (distance <= _distanceToTarget * _distanceToTarget)
+                var takeDamage = _currentTarget as ITakeDamage;
+                if(takeDamage != null)
                 {
                     ApplyDamage(takeDamage);
                 }
-            }
+                else
+                {
+                    if (!_currentTarget.IsPrimaryTarget)
+                    {
+                        _currentTarget = null;
+                        _nextTargetTime = Random.Range(0.2f, 3f);
+                    }
+                }
+            }           
         }
     }
 
