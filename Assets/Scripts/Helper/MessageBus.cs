@@ -13,10 +13,14 @@ public static class MessageBus
         var subscriber = _entries.Where(e => e.TType.IsAssignableFrom(ttype)).Select(e => e as Entry<T>).Where(e => e != null);
         foreach (var s in subscriber)
         {
-            if (s.Action != null)
+            try
             {
                 s.Action(message);
-            }                
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Error on pushing message: " + ex);
+            }
         }
     }  
 

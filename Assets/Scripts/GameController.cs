@@ -29,23 +29,26 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private float roundCountdown = 2;
     public List<EnemyController> Enemies = new List<EnemyController>();   
-    private WaveController waveController;
+
+    [HideInInspector]
+    public WaveController waveController;
 
     private bool _isWaveActive;
     private int _enemyKilled;
     private float _countdown;
     private float _timeTilParty = 10f;
+    private bool _isParty;
 
 
     public void AddEnenemy(EnemyController enemy)
     {
         enemy.gameController = this;
         Enemies.Add(enemy);
-        MessageBus.Subscribe<PartyMessage>(enemy, OnParty);
 
-        if(_timeTilParty > 0)
+        if(_isParty)
         {
-            MessageBus.Push<PartyMessage>(new PartyMessage(enemy));
+            Debug.Log("Tell new Enemy to Party");
+            enemy.OnParty(new PartyMessage(true));
         }
     }
 
@@ -165,6 +168,13 @@ public class GameController : MonoBehaviour
 
         _timeTilParty -= Time.deltaTime;
 
+        if(_isParty && _timeTilParty <= timeBetweenParties)
+        {
+            _isParty = false;
+            Debug.Log("Stopped Party");
+            MessageBus.Push(new PartyMessage(false));
+        }
+
         if(_timeTilParty <= 0)
         {
             partyMessage.enabled = true;
@@ -177,17 +187,17 @@ public class GameController : MonoBehaviour
 
     private void Party()
     {
+        if (_isParty) return;
+
         partyMessage.enabled = false;
         var partyTableGo = Instantiate(partyTable);
         float partyDuration = 10f;
         _timeTilParty = timeBetweenParties + partyDuration;
         Destroy(partyTableGo, partyDuration);
 
-
-        foreach(var enemy in Enemies)
-        {
-            MessageBus.Push(new PartyMessage(enemy));
-        }
+        Debug.Log("Started Party");
+        MessageBus.Push(new PartyMessage(true));
+        _isParty = true;
     }
 
     private void OnTargetDestroyed(TargetDestroyedMessage msg)
@@ -204,16 +214,7 @@ public class GameController : MonoBehaviour
             RemoveEnemy(msg.enemyController);
         }
     }
-
-    private void OnParty(PartyMessage msg)
-    {
-        if (Enemies.Contains(msg.enemyController))
-        {
-            var target = waveController.spawns[UnityEngine.Random.Range(0, waveController.spawns.Length)];
-            msg.enemyController.SetDestionation(target.position, 10f);
-        }
-    }
-
+   
     private void UpdateBelieverStatus()
     {
         believerBible.fillAmount = believer;
