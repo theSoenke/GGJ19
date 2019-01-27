@@ -82,7 +82,7 @@ public class GameController : MonoBehaviour
 
     public void EndWave()
     {
-        _timeTilParty = roundCountdown + _timeTilParty;
+        _timeTilParty = roundCountdown + _timeTilParty + messageDisplayTime;
         waveController.EndWave();
         _isWaveActive = false;
         _countdown = roundCountdown;
