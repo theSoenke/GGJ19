@@ -38,8 +38,7 @@ public class WaveController : MonoBehaviour
         if (_started) return;
 
         if(_currentWave >= Waves.Length)
-        {
-            _gameController.Won();
+        {            
             return;
         }
 
@@ -63,6 +62,11 @@ public class WaveController : MonoBehaviour
         _currentWave++;
         _started = false;
         MessageBus.Push(new GameStateMessage(GameStateMessage.GameState.WaveOver));
+
+        if(_currentWave >= Waves.Length)
+        {
+            _gameController.Won();
+        }
     }
 
     void Update()
