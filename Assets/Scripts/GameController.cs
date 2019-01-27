@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
     private bool _isWaveActive;
     private int _enemyKilled;
     private float _countdown;
-    private float _timeTilParty = 10f;
+    private float _timeTilParty = 30f;
     private bool _isParty;
     private float _messageCountdown;
 
@@ -77,10 +77,12 @@ public class GameController : MonoBehaviour
         waveController.StartWave();
         _enemyKilled = 0;
         _isWaveActive = true;
+        _timeTilParty = timeBetweenParties;
     }
 
     public void EndWave()
     {
+        _timeTilParty = roundCountdown + _timeTilParty;
         waveController.EndWave();
         _isWaveActive = false;
         _countdown = roundCountdown;
