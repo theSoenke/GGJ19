@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 2903873943778017495}
   Priority: 75
-  Level: 0
+  Level: 1
   IsPrimaryTarget: 0
   CanTargetMove: 0
   CheckReachable: 1

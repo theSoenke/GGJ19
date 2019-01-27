@@ -39,6 +39,7 @@ public class WaveController : MonoBehaviour
 
         if(_currentWave >= Waves.Length)
         {
+            _gameController.Won();
             return;
         }
 

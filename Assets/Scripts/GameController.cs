@@ -89,6 +89,11 @@ public class GameController : MonoBehaviour
         _messageCountdown = messageDisplayTime;
     }
 
+    public void Won()
+    {
+        SceneManager.LoadScene("Win");
+    }
+
     public Target GetTarget(Vector3 position, bool shouldBePrimary, int minLevel, Func<Target, bool> isReachable)
     {
         var time = DateTime.Now;
@@ -250,25 +255,32 @@ public class GameController : MonoBehaviour
     {
         if (!_isWaveActive)
         {
-            if(_messageCountdown > 0)
+            if (_countdown > 0)
             {
-                _messageCountdown -= Time.deltaTime;
-                DisplayMessage();
-            }
-            else if (_countdown > 0)
-            {
-                roundInitMessage.gameObject.SetActive(false);
                 nextRoundMessage.gameObject.SetActive(true);
                 nextRoundMessage.text = "Incoming in " + _countdown.ToString("0");
                 _countdown -= Time.deltaTime;
-            }
+            }      
             else
             {
                 nextRoundMessage.gameObject.SetActive(false);
-                roundInitMessage.text = "";
                 StartWave();
             }
-        }       
+        }
+        else
+        {
+            if (_messageCountdown > 0)
+            {
+                roundInitMessage.gameObject.SetActive(true);
+                _messageCountdown -= Time.deltaTime;
+                DisplayMessage();
+            }
+            else
+            {
+                roundInitMessage.gameObject.SetActive(false);
+                roundInitMessage.text = "";
+            }
+        }
     }
 }
 
