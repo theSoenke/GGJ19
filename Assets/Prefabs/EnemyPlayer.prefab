@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 3689660515920728824}
   - component: {fileID: 5947686698623962824}
   m_Layer: 0
-  m_Name: EnemySlow
+  m_Name: EnemyPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -369,7 +369,7 @@ Transform:
   m_GameObject: {fileID: 4393099573896319882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.35, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6439367162602112951}
   - {fileID: 8496861880708116872}
@@ -405,7 +405,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 1.5
+  m_Speed: 3
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -430,12 +430,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distanceToTarget: 1
-  _health: 60
-  ObjectDamage: 40
-  PlayerDamage: 20
-  DamageCooldown: 5
+  _health: 30
+  ObjectDamage: 20
+  PlayerDamage: 10
+  DamageCooldown: 2
   AnimationWalkSpeedFactor: 0.82
-  TargetPlayerPriority: 0.1
+  TargetPlayerPriority: 0.8
   gameController: {fileID: 0}
 --- !u!136 &5947686698623962824
 CapsuleCollider:
