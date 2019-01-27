@@ -335,25 +335,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b235b76c4e2869fc6b13fa6f6cb751ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fieldRadius: 2.5
-  _baseDamage: 0.05
+  _fieldRadius: 3.5
+  _baseDamage: 0.1
   _damageFalloff:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.05
-      outSlope: -0.05
+      inSlope: -0.1636861
+      outSlope: -0.1636861
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
+      time: 3.0309377
+      value: 0.50387764
+      inSlope: -0.09891911
+      outSlope: -0.09891911
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.057107594
+    - serializedVersion: 3
       time: 20
       value: 0
-      inSlope: -0.05
-      outSlope: -0.05
+      inSlope: -0.0296939
+      outSlope: -0.0296939
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
