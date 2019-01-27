@@ -7,11 +7,15 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyController : MonoBehaviour, ITakeDamage
 {
+    private const float CheckReachableTime = 3f;
+
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private Target _currentTarget;
     private int _currentTargetLevel;
     private bool _isParty = false;
+
+    private float _checkMovingTargetReachableTime;
 
     [SerializeField]
     private float _distanceToTarget = 0.75f;
@@ -97,6 +101,8 @@ public class EnemyController : MonoBehaviour, ITakeDamage
         _currentTarget = target;
         if(!_currentTarget.IsPrimaryTarget) _currentTargetLevel = target.Level;
         _navMeshAgent.SetDestination(target.TargetPosition.position);
+
+        if (_currentTarget.CanTargetMove) _checkMovingTargetReachableTime = CheckReachableTime;
     }
 
     //public void SetDestionation(Vector3 position, float partyTime)
@@ -117,6 +123,7 @@ public class EnemyController : MonoBehaviour, ITakeDamage
     {
         if (_isParty) return;
 
+        var resetTarget = false;
         if (_currentTarget != null)
         {
             Debug.DrawLine(transform.position, _currentTarget.TargetPosition.position, Color.red);
@@ -124,6 +131,17 @@ public class EnemyController : MonoBehaviour, ITakeDamage
             if (_currentTarget.CanTargetMove)
             {
                 _navMeshAgent.SetDestination(_currentTarget.TargetPosition.position);
+
+                _checkMovingTargetReachableTime -= Time.deltaTime;
+                if(_checkMovingTargetReachableTime <= 0)
+                {
+                    if (!IsTargetReachable(_currentTarget))
+                    {
+                        resetTarget = true;
+                        _nextTargetTime = 0.1f;
+                        _checkMovingTargetReachableTime = CheckReachableTime;
+                    }
+                }
             }
 
             var distance = (_currentTarget.TargetPosition.position - transform.position).sqrMagnitude;
@@ -138,11 +156,16 @@ public class EnemyController : MonoBehaviour, ITakeDamage
                 {
                     if (!_currentTarget.IsPrimaryTarget)
                     {
-                        _currentTarget = null;
+                        resetTarget = true;
                         _nextTargetTime = Random.Range(0.2f, 3f);
                     }
                 }
             }           
+        }
+
+        if (resetTarget)
+        {
+            _currentTarget = null;            
         }
     }
 
