@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour, ITakeDamage
 {
     private const float CheckReachableTime = 3f;
+    private const int UpdateMovingTargetFrames = 10;
 
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
@@ -130,7 +131,10 @@ public class EnemyController : MonoBehaviour, ITakeDamage
 
             if (_currentTarget.CanTargetMove)
             {
-                _navMeshAgent.SetDestination(_currentTarget.TargetPosition.position);
+                if (Time.frameCount % UpdateMovingTargetFrames == 0)
+                {
+                    _navMeshAgent.SetDestination(_currentTarget.TargetPosition.position);
+                }
 
                 _checkMovingTargetReachableTime -= Time.deltaTime;
                 if(_checkMovingTargetReachableTime <= 0)
