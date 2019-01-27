@@ -24,6 +24,7 @@ public class WaveController : MonoBehaviour
     public WaveSetting[] Waves;
     public int CurrentEnemyCount;
     public bool AllEnemiesSpawned;
+    public string[] messages;
 
     void Start()
     {

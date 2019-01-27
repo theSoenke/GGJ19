@@ -23,11 +23,14 @@ public class GameController : MonoBehaviour
 
     public Image believerBible;
     public TextMeshProUGUI nextRoundMessage;
+    public string[] messages;
+    public TextMeshProUGUI roundInitMessage;
 
-    [Range(0f,1f)]
+    [HideInInspector]
     public float believer = 0f;
     [SerializeField]
     private float roundCountdown = 2;
+    public float messageDisplayTime = 5f;
     public List<EnemyController> Enemies = new List<EnemyController>();   
 
     [HideInInspector]
@@ -38,6 +41,7 @@ public class GameController : MonoBehaviour
     private float _countdown;
     private float _timeTilParty = 10f;
     private bool _isParty;
+    private float _messageCountdown;
 
 
     public void AddEnenemy(EnemyController enemy)
@@ -200,6 +204,16 @@ public class GameController : MonoBehaviour
         _isParty = true;
     }
 
+    private void DisplayMessage()
+    {
+        if(roundInitMessage.text == "")
+        {
+            var message = messages[UnityEngine.Random.Range(0, messages.Length)];
+            roundInitMessage.text = message;
+            roundInitMessage.gameObject.SetActive(true);
+        }
+    }
+
     private void OnTargetDestroyed(TargetDestroyedMessage msg)
     {
         var walls = Walls.ToList();
@@ -233,14 +247,21 @@ public class GameController : MonoBehaviour
     {
         if (!_isWaveActive)
         {
-            if (_countdown > 0)
+            if(_messageCountdown > 0)
             {
+                _messageCountdown -= Time.deltaTime;
+                DisplayMessage();
+            }
+            else if (_countdown > 0)
+            {
+                nextRoundMessage.gameObject.SetActive(true);
                 nextRoundMessage.text = "Incoming in " + _countdown.ToString("0");
                 _countdown -= Time.deltaTime;
             }
             else
             {
                 nextRoundMessage.gameObject.SetActive(false);
+                roundInitMessage.gameObject.SetActive(false);
                 StartWave();
             }
         }       
