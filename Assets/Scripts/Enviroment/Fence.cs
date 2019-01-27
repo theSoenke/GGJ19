@@ -15,16 +15,20 @@ public class Fence : Target, ITakeDamage
     private bool _playerInRange;
     private bool _repairLocked;
 
+    private float _currentHealth;
+
     public void Start()
     {
         RepairIcon.OnIconClicked += Repair;
         MessageBus.Subscribe<RepairEventMessage>(this, OnRepairEvent);
+        MessageBus.Subscribe<GameStateMessage>(this, OnGameStateEvent);
+        _currentHealth = Health;
     }
 
     public bool TakeDamage(float value)
     {
-        Health -= value;
-        if (Health <= 0 && State != FenceState.Broken)
+        _currentHealth -= value;
+        if (_currentHealth <= 0 && State != FenceState.Broken)
         {
             State = FenceState.Broken;
             IsAvailable = false;
@@ -45,6 +49,13 @@ public class Fence : Target, ITakeDamage
         UpdateGraphics();
     }
 
+
+    private void OnGameStateEvent(GameStateMessage msg)
+    {
+        if(msg.State == GameStateMessage.GameState.WaveOver) {
+            _currentHealth = Health;
+        }
+    }
 
     private void OnRepairEvent(RepairEventMessage ev)
     {
