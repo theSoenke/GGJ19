@@ -435,7 +435,7 @@ MonoBehaviour:
   PlayerDamage: 5
   DamageCooldown: 1
   AnimationWalkSpeedFactor: 0.82
-  TargetPlayerPriority: 0.4
+  TargetPlayerPriority: 0.1
   gameController: {fileID: 0}
 --- !u!136 &5947686698623962824
 CapsuleCollider:

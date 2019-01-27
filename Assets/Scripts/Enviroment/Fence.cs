@@ -16,6 +16,7 @@ public class Fence : Target, ITakeDamage
     private bool _repairLocked;
 
     private float _currentHealth;
+    private GameStateMessage.GameState _gameState;
 
     public void Start()
     {
@@ -52,6 +53,7 @@ public class Fence : Target, ITakeDamage
 
     private void OnGameStateEvent(GameStateMessage msg)
     {
+        _gameState = msg.State;
         if(msg.State == GameStateMessage.GameState.WaveOver) {
             _currentHealth = Health;
         }
@@ -125,7 +127,7 @@ public class Fence : Target, ITakeDamage
 
     private bool CanRepair()
     {
-        return _playerInRange && !_repairLocked && State == FenceState.Broken;
+        return _playerInRange && !_repairLocked && State == FenceState.Broken && _gameState == GameStateMessage.GameState.WaveOver;
     }
 
 

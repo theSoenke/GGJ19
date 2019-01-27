@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     public Transform GunMuzzle;
 
+    private GameStateMessage.GameState _gameState;
+
 
     private const float SMALL_FLOAT = 0.0001f;
 
@@ -27,6 +29,8 @@ public class PlayerController : MonoBehaviour
         rigidbodyComponent = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         prevInputVector = new Vector3(1.0f, 0.0f, 0.0f);
+
+        MessageBus.Subscribe<GameStateMessage>(this, OnGameStateEvent);
     }
 
     void Update()
@@ -59,6 +63,8 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
+        if(!CanShoot()) return;
+
         GameObject bulletGameObject;
         if (BulletParent == null)
         {
@@ -79,6 +85,11 @@ public class PlayerController : MonoBehaviour
         rigidbodyComponent.velocity = speedVector;
     }
 
+    private bool CanShoot()
+    {
+        return _gameState == GameStateMessage.GameState.WaveStart;
+    }
+
     private void UpdateRotation()
     {
         RaycastHit hit;
@@ -88,5 +99,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
         }
+    }
+
+
+    private void OnGameStateEvent(GameStateMessage msg)
+    {
+        _gameState = msg.State;
     }
 }
