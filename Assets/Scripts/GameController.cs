@@ -47,7 +47,6 @@ public class GameController : MonoBehaviour
 
         if(_isParty)
         {
-            Debug.Log("Tell new Enemy to Party");
             enemy.OnParty(new PartyMessage(true));
         }
     }
@@ -84,12 +83,12 @@ public class GameController : MonoBehaviour
         nextRoundMessage.gameObject.SetActive(true);
     }
 
-    public Target GetTarget(Vector3 position, bool shouldBePrimary, Func<Target, bool> isReachable)
+    public Target GetTarget(Vector3 position, bool shouldBePrimary, int minLevel, Func<Target, bool> isReachable)
     {
         var time = DateTime.Now;
 
         Target result = null;        
-        var list = _targets.Where(t => t.Target.IsAvailable);
+        var list = _targets.Where(t => t.Target.IsAvailable && t.Target.Level >= minLevel);
 
         if (shouldBePrimary)
         {            
@@ -171,7 +170,6 @@ public class GameController : MonoBehaviour
         if(_isParty && _timeTilParty <= timeBetweenParties)
         {
             _isParty = false;
-            Debug.Log("Stopped Party");
             MessageBus.Push(new PartyMessage(false));
         }
 
@@ -194,8 +192,7 @@ public class GameController : MonoBehaviour
         float partyDuration = 10f;
         _timeTilParty = timeBetweenParties + partyDuration;
         Destroy(partyTableGo, partyDuration);
-
-        Debug.Log("Started Party");
+        
         MessageBus.Push(new PartyMessage(true));
         _isParty = true;
     }

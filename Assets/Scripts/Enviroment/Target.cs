@@ -7,6 +7,7 @@ public class Target : MonoBehaviour
     public Transform TargetPosition;
 
     public int Priority;
+    public int Level;
     public bool IsPrimaryTarget;
     public bool CanTargetMove;
     public bool CheckReachable;
