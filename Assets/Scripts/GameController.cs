@@ -77,7 +77,6 @@ public class GameController : MonoBehaviour
         waveController.StartWave();
         _enemyKilled = 0;
         _isWaveActive = true;
-        _messageCountdown = messageDisplayTime;
     }
 
     public void EndWave()
@@ -85,6 +84,7 @@ public class GameController : MonoBehaviour
         waveController.EndWave();
         _isWaveActive = false;
         _countdown = roundCountdown;
+        _messageCountdown = messageDisplayTime;
         nextRoundMessage.gameObject.SetActive(true);
     }
 
@@ -163,6 +163,7 @@ public class GameController : MonoBehaviour
         MessageBus.Subscribe<EnemyDeadMessage>(this, OnEnemyDead);
 
         _countdown = roundCountdown;
+        _messageCountdown = messageDisplayTime;
 
         MessageBus.Push(new GameStateMessage(GameStateMessage.GameState.GameStart));
     }
@@ -205,7 +206,7 @@ public class GameController : MonoBehaviour
 
     private void DisplayMessage()
     {
-        if(roundInitMessage.text == "")
+        if (roundInitMessage.text == "")
         {
             var message = messages[UnityEngine.Random.Range(0, messages.Length)];
             roundInitMessage.gameObject.SetActive(true);
@@ -255,6 +256,7 @@ public class GameController : MonoBehaviour
             }
             else if (_countdown > 0)
             {
+                roundInitMessage.gameObject.SetActive(false);
                 nextRoundMessage.gameObject.SetActive(true);
                 nextRoundMessage.text = "Incoming in " + _countdown.ToString("0");
                 _countdown -= Time.deltaTime;
@@ -262,7 +264,6 @@ public class GameController : MonoBehaviour
             else
             {
                 nextRoundMessage.gameObject.SetActive(false);
-                roundInitMessage.gameObject.SetActive(false);
                 StartWave();
             }
         }       
