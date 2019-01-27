@@ -89,6 +89,11 @@ public class GameController : MonoBehaviour
         _messageCountdown = messageDisplayTime;
     }
 
+    public void Won()
+    {
+        SceneManager.LoadScene("Win");
+    }
+
     public Target GetTarget(Vector3 position, bool shouldBePrimary, int minLevel, Func<Target, bool> isReachable)
     {
         var time = DateTime.Now;
