@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public Transform BulletParent;
     public AudioSource ShotAudio;
+    public AudioSource PartyAudio;
     public float bulletSpeed = 1.0f;
     public float ShotSoundPitch = 0.1f;
 
@@ -31,6 +32,15 @@ public class PlayerController : MonoBehaviour
         prevInputVector = new Vector3(1.0f, 0.0f, 0.0f);
 
         MessageBus.Subscribe<GameStateMessage>(this, OnGameStateEvent);
+        MessageBus.Subscribe<PartyMessage>(this, OnParty);
+    }
+
+    private void OnParty(PartyMessage obj)
+    {
+        if(obj.Start == true)
+        {
+            PartyAudio.Play();
+        }
     }
 
     void Update()
