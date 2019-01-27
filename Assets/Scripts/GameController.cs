@@ -77,6 +77,7 @@ public class GameController : MonoBehaviour
         waveController.StartWave();
         _enemyKilled = 0;
         _isWaveActive = true;
+        _messageCountdown = messageDisplayTime;
     }
 
     public void EndWave()
@@ -207,8 +208,9 @@ public class GameController : MonoBehaviour
         if(roundInitMessage.text == "")
         {
             var message = messages[UnityEngine.Random.Range(0, messages.Length)];
-            roundInitMessage.text = message;
             roundInitMessage.gameObject.SetActive(true);
+            Debug.Log("display message");
+            roundInitMessage.text = message;
         }
     }
 
