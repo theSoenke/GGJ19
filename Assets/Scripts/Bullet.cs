@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour
         
         if(enemy != null) {
             enemy.TakeDamage(_damage);
+            enemy.TriggerBlood(transform.forward);
             Destroy(gameObject);
         } else if(other.gameObject.tag == "BulletBlock")
         {
