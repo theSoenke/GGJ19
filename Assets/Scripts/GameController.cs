@@ -87,7 +87,6 @@ public class GameController : MonoBehaviour
         _isWaveActive = false;
         _countdown = roundCountdown;
         _messageCountdown = messageDisplayTime;
-        nextRoundMessage.gameObject.SetActive(true);
     }
 
     public Target GetTarget(Vector3 position, bool shouldBePrimary, int minLevel, Func<Target, bool> isReachable)
@@ -266,6 +265,7 @@ public class GameController : MonoBehaviour
             else
             {
                 nextRoundMessage.gameObject.SetActive(false);
+                roundInitMessage.text = "";
                 StartWave();
             }
         }       
