@@ -210,7 +210,6 @@ public class GameController : MonoBehaviour
         {
             var message = messages[UnityEngine.Random.Range(0, messages.Length)];
             roundInitMessage.gameObject.SetActive(true);
-            Debug.Log("display message");
             roundInitMessage.text = message;
         }
     }
