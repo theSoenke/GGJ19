@@ -238,9 +238,10 @@ GameObject:
   - component: {fileID: 6936944836957483579}
   - component: {fileID: 6936944836957483576}
   - component: {fileID: 6936944836957483577}
+  - component: {fileID: 2365229123623340332}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: BulletBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,6 +305,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2365229123623340332
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6936944836957483572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.99999994}
+  m_Center: {x: -0.0000000054186025, y: 0, z: 0}
 --- !u!1 &6936944836972121997
 GameObject:
   m_ObjectHideFlags: 0
